@@ -103,6 +103,35 @@ function toInitialsSecond(name) {
     5. Функция вывода чисел от 1 до n
 
     Условие: Напишите функцию на JavaScript, которая принимает один аргумент n и выводит все числа от 1 до n включительно.
+    Дополнительно, функция должна выводить foo вместо чисел кратных 3, должна выводить bar вместо чисел, кратных 5 и должна выводить foobar вместо чисел, одновременно кратных и 3, и 5
 */
+function printNumbers(n) {
+    for (let i = 1; i <= n; i++) {
+        if (i % 5 === 0 && i % 3 === 0) {
+            console.log('foobar');
+        } else if (i % 3 === 0) {
+            console.log('foo');
+        } else if (i % 5 === 0) {
+            console.log('bar');
+        } else {
+            console.log(i);
+        }
+    }
+}
+// printNumbers(20);
 
-// printNumbers(5);
+/*
+    6. Функция возврата уникальных значений из нескольких массивов;
+
+    Условие: Напишите функцию на JavaScript, которая принимает несколько массивов в качестве аргументов и возвращает массив, содержащий только уникальные значения из всех переданных массивов.
+*/
+function getUniqueValues(arr1, arr2, arr3) {
+    const combinedArr = [...arr1, ...arr2, ...arr3];
+    let res = [];
+}
+
+var array1 = [1, 2, 3];
+var array2 = [2, 3, 4, 5];
+var array3 = [3, 4, 5, 6, 7];
+
+getUniqueValues(array1, array2, array3);
