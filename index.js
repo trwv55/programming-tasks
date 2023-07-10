@@ -122,12 +122,14 @@ function printNumbers(n) {
 
 /*
     6. Функция возврата уникальных значений из нескольких массивов;
-
     Условие: Напишите функцию на JavaScript, которая принимает несколько массивов в качестве аргументов и возвращает массив, содержащий только уникальные значения из всех переданных массивов.
 */
 function getUniqueValues(arr1, arr2, arr3) {
     const combinedArr = [...arr1, ...arr2, ...arr3];
-    let res = [];
+    let res = combinedArr.filter(
+        (element) => combinedArr.indexOf(element) === combinedArr.lastIndexOf(element),
+    );
+    console.log(res);
 }
 
 var array1 = [1, 2, 3];
@@ -135,3 +137,38 @@ var array2 = [2, 3, 4, 5];
 var array3 = [3, 4, 5, 6, 7];
 
 getUniqueValues(array1, array2, array3);
+
+/*
+    7. Функция суммирования всех цифр числа;
+
+*/
+function sumDigits(num) {
+    let arr = num.toString().split('');
+    let numsArr = [];
+    let sum = [];
+
+    if (arr[0] === '-') {
+        arr.shift();
+    }
+
+    numsArr = arr.map(Number);
+    sum = numsArr.reduce((total, amount) => total + amount);
+    return sum;
+}
+
+// console.log(sumDigits(-123));
+
+// 2 вариант
+function sumDigitsSecond(num) {
+    let moduleNumber = Math.abs(num);
+    let str = moduleNumber.toString();
+    let arr = str.split('');
+
+    let res = arr.reduce((total, amount) => {
+        return Number(total) + Number(amount);
+    }, 0);
+
+    return res;
+}
+
+// console.log(sumDigitsSecond(-123));
