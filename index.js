@@ -129,7 +129,7 @@ function getUniqueValues(arr1, arr2, arr3) {
     let res = combinedArr.filter(
         (element) => combinedArr.indexOf(element) === combinedArr.lastIndexOf(element),
     );
-    console.log(res);
+    return res;
 }
 
 var array1 = [1, 2, 3];
@@ -172,3 +172,80 @@ function sumDigitsSecond(num) {
 }
 
 // console.log(sumDigitsSecond(-123));
+
+/*
+   8. Функция поиска мин и макс значения в массиве
+
+*/
+function minMax(arr) {
+    let res = [];
+    let assumedMin = arr[0];
+    let assumedMax = arr[arr.length - 1];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < assumedMin) {
+            assumedMin = arr[i];
+        }
+    }
+
+    for (let i = arr.length - 2; i >= 0; i--) {
+        if (arr[i] > assumedMax) {
+            assumedMax = arr[i];
+        }
+    }
+
+    res.push(assumedMin, assumedMax);
+    return res;
+}
+
+// console.log(minMax([2, 9, 10, 25, 47, 4, 1]))
+// [2, 9, 10, 25, 47, 4, 1]
+// [2, 1]
+
+// 2 вариант
+function minMaxSecond(arr) {
+    let res = [];
+    let minValue = Math.min(...arr);
+    let maxValue = Math.max(...arr);
+
+    res.push(minValue, maxValue);
+    return res;
+}
+// console.log(minMaxSecond([1]))
+
+/*
+   9. Функция создания набора дубликатов символов строки;
+
+*/
+function accum(str) {
+    let strArr = str.split('');
+    let res = null;
+
+    const duplicateArr = strArr.map((el, id) => {
+        return el.toUpperCase().repeat(id + 1);
+    });
+
+    const arr = duplicateArr.map((el) => {
+        return el.charAt(0) + el.slice(1).toLowerCase();
+    });
+
+    res = arr.join('-');
+    return res;
+}
+
+// console.log(accum('abcd'));
+// 'cwAt'
+
+// 2 вариант
+function accumSecond(str) {
+    let arr = str.toUpperCase().split('');
+
+    let repeatArr = arr.map((el, i) => {
+        return (el += el.repeat(i).toLowerCase());
+    });
+
+    let resString = repeatArr.join('-');
+    return resString;
+}
+
+// console.log(accumSecond('cwAt'))
