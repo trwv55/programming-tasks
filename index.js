@@ -249,3 +249,48 @@ function accumSecond(str) {
 }
 
 // console.log(accumSecond('cwAt'))
+
+/*
+   10. Функция трансформации букв в заглавный регистр
+
+   Условие: Напишите функцию, которая принимает строку в качестве аргумента и возвращает новую строку, в которой все буквы преобразованы в заглавный регистр.
+
+*/
+
+function transformLetters(str) {
+    let arr = str.split('');
+    let res = arr.map((el) => {
+        return el.toUpperCase();
+    });
+    let resStr = res.join('');
+    return resStr;
+}
+
+// console.log(transformLetters('javascript is awesome'));
+
+// CODE WARS
+/*
+   11. Capitalizing every word
+
+   Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+   Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+*/
+// 1 вариант
+const jadenCasedStrings = function (str) {
+    const arr = str.split(' ');
+    let res = null;
+    res = arr
+        .map((el) => {
+            return el[0].toUpperCase() + el.slice(1);
+        })
+        .join(' ');
+
+    return res;
+};
+console.log(jadenCasedStrings("How can mirrors be real if our eyes aren't real"));
+// 2 вариант
+String.prototype.toJadenCase = function () {
+    return this.split(' ')
+        .map((item) => item[0].toUpperCase() + item.slice(1))
+        .join(' ');
+};
