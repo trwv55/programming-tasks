@@ -315,5 +315,33 @@ function digitalRoot(n) {
         return digitalRoot(arrNum.reduce((total, amount) => total + amount, 0));
     }
 }
-
 // console.log(digitalRoot(942));
+
+/*
+   13. You're a square!
+
+   You just have to check if your number of building blocks is a perfect square.
+
+    Examples
+    -1  =>  false
+     0  =>  true
+     3  =>  false
+     4  =>  true
+    25  =>  true
+    26  =>  fals    
+*/
+var isSquare = function (n) {
+    if (n < 0) {
+        return false;
+    }
+    if (n === 0) {
+        return true;
+    } else if (Math.round(Math.sqrt(n)) * Math.round(Math.sqrt(n)) === n) {
+        return true;
+    } else return false;
+};
+// console.log(isSquare(25));
+// 2 вариант
+function isSquare(n) {
+    return Math.sqrt(n) % 1 === 0;
+}

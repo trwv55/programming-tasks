@@ -15,4 +15,5 @@
 9. Функция создания набора дубликатов символов строки;
 10. Функция трансформации букв в заглавный регистр;
 11. Capitalizing every word;
-12. Digital Root;
+12. Digital Root; 6 kyu
+13. You're a square! 7 kyu
