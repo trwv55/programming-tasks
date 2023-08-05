@@ -17,3 +17,5 @@
 11. Capitalizing every word;
 12. Digital Root; 6 kyu
 13. You're a square! 7 kyu
+14. Printer Errors 7 kyu
+15. Split Strings 6 kyu

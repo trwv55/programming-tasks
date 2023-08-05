@@ -345,3 +345,60 @@ var isSquare = function (n) {
 function isSquare(n) {
     return Math.sqrt(n) % 1 === 0;
 }
+
+/*
+   14. Printer Errors 7 kyu
+
+    letters not from a to m
+
+    Examples:
+    s="aaabbbbhaijjjm"
+    printer_error(s) => "0/14"
+
+    s="aaaxbbbbyyhwawiwjjjwwm"
+    printer_error(s) => "8/22"
+     
+*/
+function printerError(s) {
+    const sArr = s.split('');
+    const lettersArray = [];
+    let res = [];
+
+    for (let letterCode = 97; letterCode <= 109; letterCode++) {
+        lettersArray.push(String.fromCharCode(letterCode));
+    }
+
+    let errors = sArr.filter((letter) => lettersArray.indexOf(letter) === -1);
+
+    res.push(errors.length + '/' + sArr.length);
+    return res.join('');
+}
+
+// console.log(printerError('aaabbbbhaijjjm'));
+
+/*
+   15. Split Strings 6 kyu
+
+    Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+    Examples:
+
+*   'abc' =>  ['ab', 'c_']
+*   'abcdef' => ['ab', 'cd', 'ef']
+     
+*/
+function solution(str) {
+    let res = [];
+
+    for (let i = 0; i < str.length; i += 2) {
+        res.push(str.slice(i, i + 2));
+    }
+
+    if (str.length % 2 !== 0) {
+        let lastEl = res.pop();
+        res.push(lastEl + '_');
+        return res;
+    } else return res;
+}
+
+console.log(solution('abcdef'));
