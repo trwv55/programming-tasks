@@ -401,4 +401,63 @@ function solution(str) {
     } else return res;
 }
 
-console.log(solution('abcdef'));
+// console.log(solution('abcdef'));
+
+/*
+   16. NATO Phonetic Alphabet 7 kyu
+
+    Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+ Examples
+    "hi"      -->  "Hotel India"
+    "abc"     -->  "Alpha Bravo Charlie"
+    "babble"  -->  "Bravo Alpha Bravo Bravo Lima Echo"
+    "Banana"  -->  "Bravo Alpha November Alpha November Alpha"
+     
+*/
+
+var nato = (function () {
+    var letters = {
+        A: 'Alpha',
+        B: 'Bravo',
+        C: 'Charlie',
+        D: 'Delta',
+        E: 'Echo',
+        F: 'Foxtrot',
+        G: 'Golf',
+        H: 'Hotel',
+        I: 'India',
+        J: 'Juliett',
+        K: 'Kilo',
+        L: 'Lima',
+        M: 'Mike',
+        N: 'November',
+        O: 'Oscar',
+        P: 'Papa',
+        Q: 'Quebec',
+        R: 'Romeo',
+        S: 'Sierra',
+        T: 'Tango',
+        U: 'Uniform',
+        V: 'Victor',
+        W: 'Whiskey',
+        X: 'X-ray',
+        Y: 'Yankee',
+        Z: 'Zulu',
+    };
+
+    return function (word) {
+        let arrWord = word.split('');
+        let res = [];
+
+        for (let i = 0; i < arrWord.length; i++) {
+            if (letters.hasOwnProperty(arrWord[i].toUpperCase())) {
+                res.push(letters[arrWord[i].toUpperCase()]);
+            }
+        }
+
+        console.log(res);
+    };
+})();
+
+nato('abc');
