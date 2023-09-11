@@ -406,7 +406,11 @@ function solution(str) {
 /*
    16. NATO Phonetic Alphabet 7 kyu
 
-    Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+    Complete the function word (string) and returns a string that spells the word using the NATO phonetic alphabet.
+
+    There should be a space between each word in the returned string, and the first letter of each word should be capitalized.
+
+    For those of you that don't want your fingers to bleed, this kata already has a dictionary typed out for you.
 
  Examples
     "hi"      -->  "Hotel India"
@@ -456,8 +460,79 @@ var nato = (function () {
             }
         }
 
-        console.log(res);
+        return res.join(' ');
     };
 })();
 
-nato('abc');
+// 2 вариант
+var nato = (function () {
+    var letters = {
+        A: 'Alpha',
+        B: 'Bravo',
+        C: 'Charlie',
+        D: 'Delta',
+        E: 'Echo',
+        F: 'Foxtrot',
+        G: 'Golf',
+        H: 'Hotel',
+        I: 'India',
+        J: 'Juliett',
+        K: 'Kilo',
+        L: 'Lima',
+        M: 'Mike',
+        N: 'November',
+        O: 'Oscar',
+        P: 'Papa',
+        Q: 'Quebec',
+        R: 'Romeo',
+        S: 'Sierra',
+        T: 'Tango',
+        U: 'Uniform',
+        V: 'Victor',
+        W: 'Whiskey',
+        X: 'X-ray',
+        Y: 'Yankee',
+        Z: 'Zulu',
+    };
+
+    return function (word) {
+        return word
+            .split('')
+            .map(function (v) {
+                return letters[v.toUpperCase()];
+            })
+            .join(' ');
+    };
+})();
+
+/*
+  17. Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+For example,
+
+[true,  true,  true,  false,
+  true,  true,  true,  true ,
+  true,  false, true,  false,
+  true,  false, false, true ,
+  true,  true,  true,  true ,
+  false, false, true,  true]
+The correct answer would be 17.
+     
+*/
+
+function countSheeps(sheep) {
+    let count = 0;
+
+    sheep.map((s) => {
+        if (s === true) {
+            count++;
+        } else {
+        }
+    });
+
+    return count;
+}
+// 2 вариант
+function countSheeps(arrayOfSheeps) {
+    return arrayOfSheeps.filter(Boolean).length;
+}

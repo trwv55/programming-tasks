@@ -15,7 +15,10 @@
 9. Функция создания набора дубликатов символов строки;
 10. Функция трансформации букв в заглавный регистр;
 11. Capitalizing every word;
-12. Digital Root; 6 kyu
-13. You're a square! 7 kyu
-14. Printer Errors 7 kyu
-15. Split Strings 6 kyu
+12. Digital Root; 6 kyu;
+13. You're a square! 7 kyu;
+14. Printer Errors 7 kyu;
+15. Split Strings 6 kyu;
+16. NATO Phonetic Alphabet 7 kyu;
+17. Counting sheep...;
+18. Sort and Star;
