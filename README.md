@@ -21,4 +21,4 @@
 15. Split Strings 6 kyu;
 16. NATO Phonetic Alphabet 7 kyu;
 17. Counting sheep...;
-18. Sort and Star;
+18. Who's Online? 7 kyu;

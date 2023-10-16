@@ -379,7 +379,8 @@ function printerError(s) {
 /*
    15. Split Strings 6 kyu
 
-    Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+    Complete the solution so that it splits the string into pairs of two characters. 
+    If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 
     Examples:
 
@@ -401,7 +402,7 @@ function solution(str) {
     } else return res;
 }
 
-// console.log(solution('abcdef'));
+// console.log(solution('abc'));
 
 /*
    16. NATO Phonetic Alphabet 7 kyu
@@ -506,7 +507,8 @@ var nato = (function () {
 })();
 
 /*
-  17. Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+  17. Consider an array/list of sheep where some sheep may be missing from their place. 
+  We need a function that counts the number of sheep present in the array (true means present).
 
 For example,
 
@@ -536,3 +538,70 @@ function countSheeps(sheep) {
 function countSheeps(arrayOfSheeps) {
     return arrayOfSheeps.filter(Boolean).length;
 }
+
+/*
+  18. 
+    Given an input of an array of objects containing usernames, status and time since last activity (in mins), create a function to work out who is online, offline and away.
+
+    If someone is online but their lastActivity was more than 10 minutes ago they are to be considered away.
+
+    The input data has the following structure:
+
+    [{
+      username: 'David',
+      status: 'online',
+      lastActivity: 10
+    }, {
+      username: 'Lucy', 
+      status: 'offline',
+      lastActivity: 22
+    }, {
+      username: 'Bob', 
+      status: 'online',
+      lastActivity: 104
+    }]
+    The corresponding output should look as follows:
+    
+    {
+      online: ['David'],
+      offline: ['Lucy'],
+      away: ['Bob']
+    }
+    If for example, no users are online the output should look as follows:
+    
+    {
+      offline: ['Lucy'],
+      away: ['Bob']
+    }
+*/
+
+const whosOnline = (friends) => {
+    const res = {};
+
+    if (friends.length === 0) {
+        return res;
+    } else {
+        res.online = [];
+        res.offline = [];
+        res.away = [];
+
+        friends.map((friend) => {
+            if (friend.status === 'offline') {
+                res.offline.push(friend.username);
+            }
+            if (friend.status === 'online' && friend.lastActivity > 10) {
+                res.away.push(friend.username);
+            } else if (friend.status === 'online' && friend.lastActivity <= 10) {
+                res.online.push(friend.username);
+            }
+        });
+
+        if (res.online.length === 0) {
+            delete res.online;
+        }
+
+        return res;
+    }
+};
+
+// console.log(whosOnline([]));
