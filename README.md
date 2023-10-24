@@ -22,3 +22,5 @@
 16. NATO Phonetic Alphabet 7 kyu;
 17. Counting sheep...;
 18. Who's Online? 7 kyu;
+19. Sort array by string length 7 kyu;
+20. Area or Perimeter 8 kyu;

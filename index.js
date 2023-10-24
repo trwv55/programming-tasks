@@ -604,4 +604,66 @@ const whosOnline = (friends) => {
     }
 };
 
-// console.log(whosOnline([]));
+// console.log(
+//     whosOnline([
+//         {
+//             username: 'David',
+//             status: 'online',
+//             lastActivity: 10,
+//         },
+//         {
+//             username: 'Lucy',
+//             status: 'offline',
+//             lastActivity: 22,
+//         },
+//         {
+//             username: 'Bob',
+//             status: 'online',
+//             lastActivity: 104,
+//         },
+//     ]),
+// );
+
+/*
+  19. Sort array by string length 
+    
+    Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+    For example, if this array were passed as an argument:
+    
+    ["Telescopes", "Glasses", "Eyes", "Monocles"]
+    
+    Your function would return the following array:
+    
+    ["Eyes", "Glasses", "Monocles", "Telescopes"]
+    
+    All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+*/
+
+function sortByLength(array) {
+    return array.slice().sort((a, b) => a.length - b.length);
+}
+
+// console.log(sortByLength(['Beg', 'Life', 'I', 'To']));
+
+/*
+  20. Area or Perimeter
+
+    You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+    If it is a square, return its area. If it is a rectangle, return its perimeter.
+
+    Example(Input1, Input2 --> Output):
+
+    6, 10 --> 32
+    3, 3 --> 9
+*/
+
+const areaOrPerimeter = function (l, w) {
+    let r = null;
+
+    if (l === w) {
+        return (r = l * w);
+    } else {
+        return (r = (l + w) * 2);
+    }
+};
