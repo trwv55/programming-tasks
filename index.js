@@ -667,3 +667,19 @@ const areaOrPerimeter = function (l, w) {
         return (r = (l + w) * 2);
     }
 };
+
+/*
+  21. 8 kyu Grasshopper - Array Mean
+
+    Find the mean (average) of a list of numbers in an array.
+*/
+
+var findAverage = function (nums) {
+    const sum = nums.reduce(function (currentSum, currentNumber) {
+        return currentSum + currentNumber;
+    }, 0);
+
+    return sum / nums.length;
+};
+
+// console.log(findAverage([1, 3, 5, 7]));

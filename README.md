@@ -24,3 +24,4 @@
 18. Who's Online? 7 kyu;
 19. Sort array by string length 7 kyu;
 20. Area or Perimeter 8 kyu;
+21. Grasshopper - Array Mean 8 kyu;
