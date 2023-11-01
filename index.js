@@ -683,3 +683,55 @@ var findAverage = function (nums) {
 };
 
 // console.log(findAverage([1, 3, 5, 7]));
+
+/*
+  22. 7 kyu Testing 1-2-3
+
+    Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+    The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+    Examples: (Input --> Output)
+
+    [] --> []
+    ["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
+*/
+
+var number = function (array) {
+    let newArr = [];
+
+    if (array.length === 0) {
+        newArr = [];
+    } else {
+        newArr = array.map((element, index) => {
+            return index + 1 + ': ' + element;
+        });
+    }
+
+    return newArr;
+};
+
+// console.log(number(['a', 'b', 'c']));
+
+/*
+  23. 8 kyu Find the first non-consecutive number
+
+   Your task is to find the first element of an array that is not consecutive.
+
+    By not consecutive we mean not exactly 1 larger than the previous element of the array.
+
+    E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+
+    If the whole array is consecutive then return null2.
+*/
+
+function firstNonConsecutive(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] !== arr[i + 1] - 1) {
+            return arr[i + 1];
+        }
+    }
+    return null;
+}
+
+console.log(firstNonConsecutive([1, 2, 3, 4]));

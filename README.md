@@ -25,3 +25,5 @@
 19. Sort array by string length 7 kyu;
 20. Area or Perimeter 8 kyu;
 21. Grasshopper - Array Mean 8 kyu;
+22. Testing 1-2-3 7 kyu;
+23. Find the first non-consecutive number 8 kyu;
