@@ -122,7 +122,8 @@ function printNumbers(n) {
 
 /*
     6. Функция возврата уникальных значений из нескольких массивов;
-    Условие: Напишите функцию на JavaScript, которая принимает несколько массивов в качестве аргументов и возвращает массив, содержащий только уникальные значения из всех переданных массивов.
+    Условие: Напишите функцию на JavaScript, которая принимает несколько массивов в качестве аргументов и возвращает массив, 
+    содержащий только уникальные значения из всех переданных массивов.
 */
 function getUniqueValues(arr1, arr2, arr3) {
     const combinedArr = [...arr1, ...arr2, ...arr3];
@@ -734,4 +735,67 @@ function firstNonConsecutive(arr) {
     return null;
 }
 
-console.log(firstNonConsecutive([1, 2, 3, 4]));
+// console.log(firstNonConsecutive([1, 2, 3, 4]));
+
+/*
+  24. 8 kyu Name Shuffler
+
+   Write a function that returns a string in which firstname is swapped with last name.
+
+    Example(Input --> Output)
+
+    "john McClane" --> "McClane john"
+*/
+
+function nameShuffler(str) {
+    return str.split(' ').reverse().join(' ');
+}
+
+nameShuffler('john McClane');
+
+/*
+  25. 8 kyu To square(root) or not to square(root)
+
+    Write a method, that will get an integer array as parameter and will process every number from this array.
+
+    Return a new array with processing every number of the input-array like this:
+
+    If the number has an integer square root, take this, otherwise square the number.
+
+    Example
+    [4,3,9,7,2,1] -> [2,9,3,49,4,1]
+
+   
+*/
+
+function squareOrSquareRoot(array) {
+    let newArr = array.map((el) => {
+        if (Number.isInteger(Math.sqrt(el))) {
+            return (el = Math.sqrt(el));
+        } else {
+            return (el = el * el);
+        }
+    });
+    return newArr;
+}
+
+// console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1]));
+
+/*
+  26. Even numbers in an array 7 kyu;
+
+    Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+
+    For example:
+
+    ([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+    ([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+    ([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
+   
+*/
+
+function evenNumbers(array, number) {
+    // good luck
+}
+
+evenNumbers([(-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26)], 2);

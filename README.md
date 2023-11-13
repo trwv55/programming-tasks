@@ -27,3 +27,5 @@
 21. Grasshopper - Array Mean 8 kyu;
 22. Testing 1-2-3 7 kyu;
 23. Find the first non-consecutive number 8 kyu;
+24. Name Shuffler 8 kyu;
+25. To square(root) or not to square(root) 8 kyu;
