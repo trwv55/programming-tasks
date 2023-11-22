@@ -798,19 +798,18 @@ function squareOrSquareRoot(array) {
 
 function evenNumbers(array, number) {
     let res = [];
+    let counter = number;
 
     for (let i = array.length - 1; i >= 0; i--) {
-        let counter = number;
-
-        while (counter != 0) {
-            if (array[i] % 2 === 0) {
-                res.push(array[i]);
-                counter--;
-            }
+        if (array[i] % 2 === 0 && counter > 0) {
+            res.push(array[i]);
+            counter--;
         }
     }
-
-    console.log(res);
+    return res.reverse();
 }
 
-evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2);
+// 2 вариант
+const evenNumbers = (array, number) => array.filter((item) => item % 2 === 0).slice(-number);
+
+// evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2);
