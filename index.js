@@ -784,7 +784,9 @@ function squareOrSquareRoot(array) {
 /*
   26. Even numbers in an array 7 kyu;
 
-    Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+    Given an array of numbers, return a new array of length number containing 
+    the last even numbers from the original array (in the same order). 
+    The original array will be not empty and will contain at least "number" even numbers.
 
     For example:
 
@@ -795,7 +797,20 @@ function squareOrSquareRoot(array) {
 */
 
 function evenNumbers(array, number) {
-    // good luck
+    let res = [];
+
+    for (let i = array.length - 1; i >= 0; i--) {
+        let counter = number;
+
+        while (counter != 0) {
+            if (array[i] % 2 === 0) {
+                res.push(array[i]);
+                counter--;
+            }
+        }
+    }
+
+    console.log(res);
 }
 
-evenNumbers([(-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26)], 2);
+evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2);

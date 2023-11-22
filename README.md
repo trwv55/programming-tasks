@@ -29,3 +29,4 @@
 23. Find the first non-consecutive number 8 kyu;
 24. Name Shuffler 8 kyu;
 25. To square(root) or not to square(root) 8 kyu;
+26. Even numbers in an array 7 kyu;
