@@ -30,3 +30,5 @@
 24. Name Shuffler 8 kyu;
 25. To square(root) or not to square(root) 8 kyu;
 26. Even numbers in an array 7 kyu;
+27. Find The Duplicated Number in a Consecutive Unsorted List 7kyu;
+28. Number of People in the Bus 7 kyu;

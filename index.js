@@ -810,6 +810,78 @@ function evenNumbers(array, number) {
 }
 
 // 2 вариант
-const evenNumbers = (array, number) => array.filter((item) => item % 2 === 0).slice(-number);
+// const evenNumbers = (array, number) => array.filter((item) => item % 2 === 0).slice(-number);
 
 // evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2);
+
+/*
+  27. Find The Duplicated Number in a Consecutive Unsorted List 7 kyu;
+
+    You are given an array of n+1 integers 1 through n. In addition there is a single duplicate integer.
+
+    The array is unsorted.
+
+    An example valid array would be [3, 2, 5, 1, 3, 4]. It has the integers 1 through 5 and 3 is duplicated. [1, 2, 4, 5, 5] would not be valid as it is missing 3.
+
+    You should return the duplicate value as a single integer.
+   
+*/
+
+function findDup(arr) {
+    console.log(arr.sort());
+    let duplicateValue;
+    duplicateValue = arr.filter((elem) => {
+        return arr.indexOf(elem) !== arr.lastIndexOf(elem);
+    });
+
+    return duplicateValue[0];
+}
+
+// 2 вариант
+// function findDup(arr) {
+//     arr.sort();
+
+//     for (let i = 0; i < arr.length; i += 1) {
+//         if (arr[i] == arr[i + 1]) {
+//             return arr[i];
+//         }
+//     }
+// }
+
+// console.log(findDup([1, 3, 2, 5, 4, 5, 7, 6]));
+
+/*
+  28. Number of People in the Bus 7 kyu;
+
+    There is a bus moving in the city which takes and drops some people at each bus stop.
+
+    You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+
+    Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, they are probably sleeping there :D
+
+    Take a look on the test cases.
+
+    Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the returned integer can't be negative.
+
+    The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.
+
+    number([[3,0],[9,1],[4,10],[12,2],[6,1],[7,10]]),17
+    number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]]),21
+   
+*/
+
+var number = function (busStops) {
+    let num = 0;
+    for (let i = 0; i < busStops.length - 1; i++) {
+        for (let j = 1; j < busStops.length; j++) {}
+    }
+    return num;
+};
+
+console.log(
+    number([
+        [10, 0],
+        [3, 5],
+        [5, 8],
+    ]),
+);
