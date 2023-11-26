@@ -869,14 +869,20 @@ function findDup(arr) {
     number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]]),21
    
 */
-
+// Вариант решения
 var number = function (busStops) {
-    let num = 0;
-    for (let i = 0; i < busStops.length - 1; i++) {
-        for (let j = 1; j < busStops.length; j++) {}
+    var totalPeople = 0;
+    for (var i = 0; i < busStops.length; i++) {
+        totalPeople += busStops[i][0];
+        console.log('totalPeople1', totalPeople);
+        totalPeople -= busStops[i][1];
+        console.log('totalPeople2', totalPeople);
     }
-    return num;
+    return totalPeople;
 };
+
+// 2 вариант
+// const number = (busStops) => busStops.reduce((rem, [on, off]) => rem + on - off, 0);
 
 console.log(
     number([
