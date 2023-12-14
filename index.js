@@ -869,14 +869,12 @@ function findDup(arr) {
     number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]]),21
    
 */
-// Вариант решения
+
 var number = function (busStops) {
     var totalPeople = 0;
     for (var i = 0; i < busStops.length; i++) {
         totalPeople += busStops[i][0];
-        console.log('totalPeople1', totalPeople);
         totalPeople -= busStops[i][1];
-        console.log('totalPeople2', totalPeople);
     }
     return totalPeople;
 };
@@ -884,10 +882,46 @@ var number = function (busStops) {
 // 2 вариант
 // const number = (busStops) => busStops.reduce((rem, [on, off]) => rem + on - off, 0);
 
-console.log(
-    number([
-        [10, 0],
-        [3, 5],
-        [5, 8],
-    ]),
-);
+// console.log(
+//     number([
+//         [10, 0],
+//         [3, 5],
+//         [5, 8],
+//     ]),
+// );
+
+/*
+  29. Compare within margin 8kyu;;
+
+   Create a function close_compare that accepts 3 parameters: a, b, and an optional margin. The function should return whether a is lower than, close to, or higher than b.
+
+    Please note the following:
+
+    When a is close to b, return 0.
+    For this challenge, a is considered "close to" b if margin is greater than or equal to the absolute distance between a and b.
+    Otherwise...
+
+    When a is less than b, return -1.
+
+    When a is greater than b, return 1.
+
+    If margin is not given, treat it as if it were zero.
+
+    Assume: margin >= 0
+
+    Tip: Some languages have a way to make parameters optional.
+
+    Example 1
+    If a = 3, b = 5, and margin = 3, then close_compare(a, b, margin) should return 0.
+
+    This is because a and b are no more than 3 numbers apart.
+*/
+
+function closeCompare(a, b, margin = 0) {
+    // ...
+    if (a < b - margin) return -1;
+    if (a - margin > b) return 1;
+    return 0;
+}
+
+// console.log(closeCompare(5, 5, 7));
