@@ -925,3 +925,77 @@ function closeCompare(a, b, margin = 0) {
 }
 
 // console.log(closeCompare(5, 5, 7));
+
+/*
+  30. Binary Addition
+
+   Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+    The binary number returned should be a string.
+
+    Examples:(Input1, Input2 --> Output (explanation)))
+
+    1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+    5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+*/
+
+function addBinary(a, b) {
+    const arr = [];
+    arr.push(a);
+    arr.push(b);
+
+    let decimalNumber = arr.reduce((a, b) => {
+        return a + b;
+    }, 0);
+
+    let binaryString = decimalNumber.toString(2);
+
+    return binaryString;
+}
+
+// 2 вариант
+function addBinary(a, b) {
+    return (a + b).toString(2);
+}
+
+// addBinary(5, 9);
+
+/*
+  31. Two to One
+
+   Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+    Examples:
+    a = "xyaabbbccccdefww"
+    b = "xxxxyyyyabklmopq"
+    longest(a, b) -> "abcdefklmopqwxy"
+
+    a = "abcdefghijklmnopqrstuvwxyz"
+    longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+*/
+
+function longest(s1, s2) {
+    const arrS1 = s1.split('');
+    const arrS2 = s2.split('');
+    let arrS3 = [];
+    let arrS3NoDouble = [];
+
+    arrS1.forEach((item) => {
+        arrS3.push(item);
+    });
+
+    arrS2.forEach((item) => {
+        arrS3.push(item);
+    });
+
+    arrS3NoDouble = [...new Set(arrS3)].sort();
+
+    console.log('arrS3NoDouble', arrS3NoDouble.join(''));
+    return arrS3NoDouble.join('');
+}
+
+// 2 вариант
+// const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
+
+longest('aretheyhere', 'yestheyarehere');
+// 'aehrsty';

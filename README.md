@@ -33,3 +33,5 @@
 27. Find The Duplicated Number in a Consecutive Unsorted List 7kyu;
 28. Number of People in the Bus 7 kyu;
 29. Compare within margin 8kyu;
+30. Binary Addition 7kyu;
+31. Two to One 7kyu;
