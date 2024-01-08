@@ -35,3 +35,4 @@
 29. Compare within margin 8kyu;
 30. Binary Addition 7kyu;
 31. Two to One 7kyu;
+32. Greatest common divisor 7kyu;

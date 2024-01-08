@@ -997,5 +997,29 @@ function longest(s1, s2) {
 // 2 вариант
 // const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
 
-longest('aretheyhere', 'yestheyarehere');
+// longest('aretheyhere', 'yestheyarehere');
 // 'aehrsty';
+
+/*
+  32. Greatest common divisor 7kyu;
+
+   Find the greatest common divisor of two positive integers. 
+   The integers can be large, so you need to find a clever solution.
+
+    The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer that is also greater or equal to 1.
+
+    assert.strictEqual(mygcd(30, 12),  6)
+    assert.strictEqual(mygcd(36, 12), 12)
+    assert.strictEqual(mygcd( 8,  9),  1)
+    assert.strictEqual(mygcd( 1,  1),  1)
+*/
+
+function mygcd(x, y) {
+    if (y === 0) {
+        return x;
+    } else {
+        return mygcd(y, x % y);
+    }
+}
+
+// console.log(mygcd(30, 12));
