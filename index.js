@@ -1023,3 +1023,35 @@ function mygcd(x, y) {
 }
 
 // console.log(mygcd(30, 12));
+
+// 33. Reversed Strings 8kyu
+
+// Complete the solution so that it reverses the string passed into it.
+
+// 'world'  =>  'dlrow'
+// 'word'   =>  'drow'
+
+function solution(str) {
+    return str.split('').reverse().join('');
+}
+// solution('world');
+
+/*
+  34. Convert boolean values to strings 'Yes' or 'No' 8kyu;
+
+    Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+*/
+
+function boolToWord(bool) {
+    return bool === true ? 'Yes' : 'No';
+}
+
+/*
+  35. Remove First and Last Character 8kyu;
+
+    It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters.
+*/
+
+function removeChar(str) {
+    return str.slice(1, -1);
+}

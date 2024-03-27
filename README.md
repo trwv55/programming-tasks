@@ -36,3 +36,6 @@
 30. Binary Addition 7kyu;
 31. Two to One 7kyu;
 32. Greatest common divisor 7kyu;
+33. Reversed Strings 8kyu;
+34. Convert boolean values to strings 'Yes' or 'No' 8kyu;
+35. Remove First and Last Character 8kyu;
