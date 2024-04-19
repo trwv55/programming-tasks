@@ -990,7 +990,6 @@ function longest(s1, s2) {
 
     arrS3NoDouble = [...new Set(arrS3)].sort();
 
-    console.log('arrS3NoDouble', arrS3NoDouble.join(''));
     return arrS3NoDouble.join('');
 }
 
@@ -1055,3 +1054,87 @@ function boolToWord(bool) {
 function removeChar(str) {
     return str.slice(1, -1);
 }
+
+/*
+  36. String repeat 8kyu;
+
+    Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+
+    Examples (input -> output)
+    6, "I"     -> "IIIIII"
+    5, "Hello" -> "HelloHelloHelloHelloHello"
+*/
+
+function repeatStr(n, s) {
+    let i = 0;
+    let res = [];
+
+    while (i !== n) {
+        res.push(s);
+        i++;
+    }
+
+    return res.join('');
+}
+
+// console.log(repeatStr(5, '#'));
+
+/*
+  37. Vowel Count 7kyu;
+
+    Return the number (count) of vowels in the given string.
+
+    We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+    The input string will only consist of lower case letters and/or spaces.
+*/
+
+function getCount(str) {
+    let vowelCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (
+            str[i] === 'a' ||
+            str[i] === 'e' ||
+            str[i] === 'i' ||
+            str[i] === 'o' ||
+            str[i] === 'u'
+        ) {
+            vowelCount++;
+        }
+    }
+
+    return vowelCount;
+}
+
+// console.log(getCount('abracadabra'));
+
+/*
+  38. Sum of positive 8kyu;
+
+    You get an array of numbers, return the sum of all of the positives ones.
+
+    Example [1,-4,7,12] => 1 + 7 + 12 = 20
+    
+    Note: if there is nothing to sum, the sum is default to 0.
+*/
+
+function positiveSum(arr) {
+    let posArr = [];
+    let sum;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            posArr.push(arr[i]);
+        }
+    }
+
+    if (posArr.length === 0) {
+        return 0;
+    } else {
+        sum = posArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        return sum;
+    }
+}
+
+// console.log(positiveSum([1, -2, 3, 4, 5]));

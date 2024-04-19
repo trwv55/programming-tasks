@@ -39,3 +39,6 @@
 33. Reversed Strings 8kyu;
 34. Convert boolean values to strings 'Yes' or 'No' 8kyu;
 35. Remove First and Last Character 8kyu;
+36. String repeat 8kyu;
+37. Vowel Count 7kyu;
+38. Sum of positive 8kyu;
