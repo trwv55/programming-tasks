@@ -42,3 +42,6 @@
 36. String repeat 8kyu;
 37. Vowel Count 7kyu;
 38. Sum of positive 8kyu;
+39. Highest and Lowest 7kyu;
+40. Descending Order 7kyu;
+41. String repeat 8kyu;

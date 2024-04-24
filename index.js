@@ -1118,7 +1118,6 @@ function getCount(str) {
     
     Note: if there is nothing to sum, the sum is default to 0.
 */
-
 function positiveSum(arr) {
     let posArr = [];
     let sum;
@@ -1136,5 +1135,78 @@ function positiveSum(arr) {
         return sum;
     }
 }
-
 // console.log(positiveSum([1, -2, 3, 4, 5]));
+
+/*
+  39. Highest and Lowest 7kyu;
+
+    In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+    highAndLow("1 2 3 4 5");  // return "5 1"
+    highAndLow("1 2 -3 4 5"); // return "5 -3"
+    highAndLow("1 9 3 4 -5"); // return "9 -5"
+*/
+
+function highAndLow(numbers) {
+    let numbersArr = numbers.split(' ').map(Number);
+    let assumeLowest = numbersArr[0];
+    let assummeHighest = numbersArr[numbersArr.length - 1];
+    let res = [];
+
+    for (let i = 1; i < numbersArr.length; i++) {
+        if (numbersArr[i] < assumeLowest) {
+            assumeLowest = numbersArr[i];
+        }
+    }
+
+    for (let i = numbersArr.length - 1; i >= 0; i--) {
+        if (numbersArr[i] > assummeHighest) {
+            assummeHighest = numbersArr[i];
+        }
+    }
+
+    res.push(assummeHighest, assumeLowest);
+
+    return String(res.join(' '));
+}
+
+// 2 вариант
+function highAndLow(numbers) {
+    numbers = numbers.split(' ');
+    return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+
+// console.log(
+//     highAndLow(
+//         '3189 2333 913 1068 1902 2113 953 639 2314 844 1045 562 1104 148 2497 251 2951 900 1726 397 949',
+//     ),
+// );
+
+/*
+  40. Descending Order 7kyu;
+
+    Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+    Examples:
+    Input: 42145 Output: 54421
+
+    Input: 145263 Output: 654321
+
+    Input: 123456789 Output: 987654321
+*/
+
+function descendingOrder(n) {
+    return parseInt(n.toString().split('').sort().reverse().join(''));
+}
+
+// console.log(descendingOrder(279));
+
+/*
+  41. String repeat 8kyu;
+
+   Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+
+    Examples (input -> output)
+    6, "I"     -> "IIIIII"
+    5, "Hello" -> "HelloHelloHelloHelloHello"
+*/
