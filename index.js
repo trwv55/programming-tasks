@@ -1200,6 +1200,17 @@ function descendingOrder(n) {
 }
 
 // console.log(descendingOrder(279));
+/*
+  41.  
+
+    функционал скрытия номера телефона по кнопке у пользователя в формате 899999999 на 899******9
+*/
+
+function hidePhoneNumber(phoneNumber) {
+    return phoneNumber.slice(0, 2) + '*****' + phoneNumber.slice(phoneNumber.length - 1);
+}
+
+// console.log(hidePhoneNumber('899999999'));
 
 /*
   41. String repeat 8kyu;
@@ -1210,3 +1221,99 @@ function descendingOrder(n) {
     6, "I"     -> "IIIIII"
     5, "Hello" -> "HelloHelloHelloHelloHello"
 */
+
+function repeatStr(n, s) {
+    let i = 0;
+    let res = [];
+
+    while (i !== n) {
+        res.push(s);
+        i++;
+    }
+
+    return res.join('');
+}
+
+// 43. Дан массив операций:
+
+// [
+//   { date: '2023-07-10', amount: '100' },
+//   { date: '2024-01-31', amount: '800' },
+//   { date: '2024-01-20', amount: '900' }
+// ]
+
+// Нужно сгруппировать их по году чтобы получилось так:
+
+//  {
+//     '2023': ['07-10'],
+//     '2024': ['01-31', '01-20']
+//   }
+
+function groupByYear(operations) {
+    const result = {};
+
+    operations.forEach((item) => {
+        const [year, month, day] = item.date.split('-'); // Разделяем дату на год и месяц-день
+        const monthDay = `${month}-${day}`; // Объединяем месяц и день
+
+        if (!result[year]) {
+            result[year] = []; // создаем новый для года
+        }
+
+        result[year].push(monthDay);
+    });
+    return result;
+}
+
+const arr = [
+    { date: '2023-07-10', amount: '100' },
+    { date: '2024-01-31', amount: '800' },
+    { date: '2024-01-20', amount: '900' },
+];
+
+// console.log(groupByYear(arr));
+
+/*
+  44
+
+  нам нужно создать функцию-обёртку над fetch, которая будет повторять запрос в случае ошибки, не более retriesCount раз.
+
+    Определить функцию fetchWithRetries, которая принимает два параметра:
+
+    retriesCount: количество попыток в случае ошибки.
+    ...fetchArgs: аргументы, которые будут переданы в fetch.
+
+*/
+
+function fetchWithRetries(retriesCount, ...fetchArgs) {
+    // Внутренняя функция для выполнения запроса с попытками
+    function executeFetch(attemptsLeft) {
+        return fetch(...fetchArgs)
+            .then((response) => {
+                if (!response.ok) {
+                    // Если ответ не успешен, кидаем ошибку
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                // Если ответ успешен, возвращаем его
+                return response;
+            })
+            .catch((error) => {
+                if (attemptsLeft > 0) {
+                    // Если остались попытки, уменьшаем их количество и повторяем запрос
+                    console.log(`Retrying... Attempts left: ${attemptsLeft}`);
+                    return executeFetch(attemptsLeft - 1);
+                }
+                // Если попыток не осталось, кидаем ошибку
+                throw error;
+            });
+    }
+
+    // Запуск первой попытки с начальным количеством попыток
+    return executeFetch(retriesCount);
+}
+
+// Пример использования
+// fetchWithRetries(3, 'https://jsonplaceholder.typicode.com/posts')
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error('Fetch failed:', error));
