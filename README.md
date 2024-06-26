@@ -51,3 +51,4 @@
 
 43. groupByYear;
 44. fetchWithRetries;
+45. limit. яндекс;

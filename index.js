@@ -1317,3 +1317,37 @@ function fetchWithRetries(retriesCount, ...fetchArgs) {
 //     .then((response) => response.json())
 //     .then((data) => console.log(data))
 //     .catch((error) => console.error('Fetch failed:', error));
+
+/*
+  45. 
+
+*/
+
+function sayHello() {
+    return 'Hello';
+}
+
+function limit(fn, limit) {
+    if (typeof fn !== 'function') {
+        throw new Error('Первый параметр должен быть функцией');
+    }
+    if (typeof limit !== 'number' || limit < 0) {
+        throw new Error('Второй параметр должен быть неотрицательным целым числом');
+    }
+    limit = Math.floor(limit);
+    let count = 0;
+
+    return function (...args) {
+        if (count >= limit) {
+            return undefined;
+        }
+        count++;
+        return fn(...args);
+    };
+}
+
+// const zeroLimit = limit(sayHello, 2.2);
+// console.log(zeroLimit());
+// console.log(zeroLimit());
+// console.log(zeroLimit());
+// console.log(zeroLimit());
