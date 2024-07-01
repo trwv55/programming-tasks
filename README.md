@@ -52,3 +52,6 @@
 43. groupByYear;
 44. fetchWithRetries;
 45. limit. яндекс;
+46. Square Every Digit 7 kyu;
+47. sber currency;
+48. Sum of two lowest positive integers 7 kyu;

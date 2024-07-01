@@ -1351,3 +1351,120 @@ function limit(fn, limit) {
 // console.log(zeroLimit());
 // console.log(zeroLimit());
 // console.log(zeroLimit());
+
+/*
+  46. Square Every Digit 7 kyu;
+
+   Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+    For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+
+    Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)
+
+    Note: The function accepts an integer and returns an integer.
+
+*/
+
+function squareDigits(num) {
+    if (num === 0) return num;
+
+    let res = [];
+    let arr = num.toString().split('');
+
+    for (let i = 0; i < arr.length; i++) {
+        res.push(Math.pow(arr[i], 2));
+    }
+
+    return +res.join('');
+}
+
+// squareDigits(9119);
+
+// Best practise
+// function squareDigits(num) {
+//     return +num
+//         .toString()
+//         .split('')
+//         .map((i) => i * i)
+//         .join('');
+// }
+
+/*
+  47. sber currency;
+
+   Для решения этой задачи, необходимо реализовать функцию, которая будет принимать дату и код валюты, и возвращать актуальный курс на эту дату. Если дата приходится на выходной или праздничный день, 
+   необходимо использовать курс, заданный в предыдущий рабочий день.
+
+*/
+
+const rates = [
+    { date: '2023-12-29', code: 'USD', rate: 96.7815 },
+    { date: '2024-02-19', code: 'USD', rate: 93.7815 },
+    { date: '2024-01-16', code: 'USD', rate: 92.5552 },
+    { date: '2024-01-15', code: 'USD', rate: 92.8812 },
+    { date: '2024-02-19', code: 'EUR', rate: 99.3468 },
+    { date: '2024-01-16', code: 'EUR', rate: 98.561 },
+    { date: '2024-01-15', code: 'EUR', rate: 99.1425 },
+];
+
+function getRate(date, code) {
+    // Преобразуем входную дату в объект Date
+    let queryDate = new Date(date);
+    console.log('queryDate', queryDate);
+
+    // Сортируем курсы по дате
+    rates.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    // Ищем курсы для данной валюты
+    let currencyRates = rates.filter((rate) => rate.code === code);
+
+    // Найдем актуальный курс
+    for (let i = currencyRates.length - 1; i >= 0; i--) {
+        let rateDate = new Date(currencyRates[i].date);
+
+        if (queryDate >= rateDate) {
+            return currencyRates[i].rate;
+        }
+    }
+
+    // Если нет подходящего курса, возвращаем null или можно выбросить ошибку
+    return null;
+}
+
+// Пример использования:
+// let date = '2024-01-17'; // запрос на дату
+// let code = 'USD'; // запрос по коду валюты
+// let rate = getRate(date, code);
+
+// console.log(`Курс на ${date} для ${code}: ${rate}`);
+
+/*
+  48. Sum of two lowest positive integers;
+
+   Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+    For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+    [10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+*/
+
+function sumTwoSmallestNumbers(numbers) {
+    let lowNum1 = Math.min(...numbers);
+    let index = numbers.indexOf(lowNum1);
+
+    numbers.splice(index, 1);
+
+    let lowNum2 = Math.min(...numbers);
+
+    return lowNum1 + lowNum2;
+}
+
+// console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
+
+// Best practice
+
+// function sumTwoSmallestNumbers(numbers){
+//   numbers = numbers.sort(function(a, b){return a - b; });
+//   return numbers[0] + numbers[1];
+// };
