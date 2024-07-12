@@ -55,3 +55,5 @@
 46. Square Every Digit 7 kyu;
 47. sber currency;
 48. Sum of two lowest positive integers 7 kyu;
+49. Array.diff 6 kyu;
+50. List Filtering 7 kyu;

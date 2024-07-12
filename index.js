@@ -1468,3 +1468,44 @@ function sumTwoSmallestNumbers(numbers) {
 //   numbers = numbers.sort(function(a, b){return a - b; });
 //   return numbers[0] + numbers[1];
 // };
+
+/*
+  49. Array.diff 6 kyu;
+
+   Твоя задача в этом ката - реализовать функцию разности, которая вычитает один список из другого и возвращает результат.
+
+    Необходимо удалить все значения из списка a, которые присутствуют в списке b, сохраняя их порядок.
+    
+    Пример:
+    
+    arrayDiff([1,2],[1]) == [2]
+    Если значение присутствует в b, все его вхождения должны быть удалены из другого списка:
+    
+    Пример:
+    arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+*/
+
+function arrayDiff(a, b) {
+    return a.filter((el) => !b.includes(el));
+}
+
+// console.log(arrayDiff([1, 2, 2], [2]));
+
+/*
+  50. List Filtering 7 kyu;
+
+   In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+    Example
+    filter_list([1,2,'a','b']) == [1,2]
+    filter_list([1,'a','b',0,15]) == [1,0,15]
+    filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+
+*/
+
+function filter_list(l) {
+    return l.filter((el) => typeof el === 'number');
+}
+
+console.log(filter_list([1, 'a', 'b', 0, 15]));
