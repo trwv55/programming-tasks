@@ -3,28 +3,28 @@
 */
 
 function checkPalindrom(str) {
-    let newStr = [];
-    let lowerStr = str.toLowerCase();
+	let newStr = [];
+	let lowerStr = str.toLowerCase();
 
-    for (let i = lowerStr.length - 1; i >= 0; i--) {
-        newStr.push(lowerStr[i]);
-    }
+	for (let i = lowerStr.length - 1; i >= 0; i--) {
+		newStr.push(lowerStr[i]);
+	}
 
-    if (lowerStr === newStr.join('')) {
-        console.log('Это палиндром');
-    } else console.log('Это не палиндром');
+	if (lowerStr === newStr.join("")) {
+		console.log("Это палиндром");
+	} else console.log("Это не палиндром");
 }
 
 // checkPalindrom("Шалаш");
 
 // вторая реализация
 function isPalindrom(str) {
-    let arr = str.split('');
-    let reversArr = arr.reverse();
-    let resString = reversArr.join('');
+	let arr = str.split("");
+	let reversArr = arr.reverse();
+	let resString = reversArr.join("");
 
-    let res = str === resString;
-    return res;
+	let res = str === resString;
+	return res;
 }
 // console.log(isPalindrom('шалаш'));
 
@@ -32,26 +32,26 @@ function isPalindrom(str) {
     2. Функция поиска самого короткого слова
 */
 function findShort(str) {
-    let arr = str.split(' ');
-    let shortestWord = arr[0];
+	let arr = str.split(" ");
+	let shortestWord = arr[0];
 
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i].length < shortestWord.length) {
-            shortestWord = arr[i];
-        }
-    }
-    return shortestWord;
+	for (let i = 1; i < arr.length; i++) {
+		if (arr[i].length < shortestWord.length) {
+			shortestWord = arr[i];
+		}
+	}
+	return shortestWord;
 }
 
 // console.log(findShort("The smallest word in sentence"));
 
 // 2 вариант
 function findShortSecond(str) {
-    let wordsArr = str.split(' ');
-    let sortedWordsArr = wordsArr.sort(function (a, b) {
-        return a.length - b.length;
-    });
-    return sortedWordsArr[0];
+	let wordsArr = str.split(" ");
+	let sortedWordsArr = wordsArr.sort(function (a, b) {
+		return a.length - b.length;
+	});
+	return sortedWordsArr[0];
 }
 
 // console.log(findShortSecond("The smallest word in sentence"));
@@ -61,12 +61,12 @@ function findShortSecond(str) {
 */
 
 function getCapitalsLetters(str) {
-    let arr = str.split('');
-    let resArr = arr.filter((el) => {
-        return el === el.toUpperCase();
-    });
-    let resStr = resArr.join('');
-    return resStr;
+	let arr = str.split("");
+	let resArr = arr.filter(el => {
+		return el === el.toUpperCase();
+	});
+	let resStr = resArr.join("");
+	return resStr;
 }
 // console.log(getCapitalsLetters('АвапВАПпсГГШШшш'));
 
@@ -75,27 +75,27 @@ function getCapitalsLetters(str) {
 */
 
 function toInitials(str) {
-    let resArr = [];
-    let nameArr = str.split(' ');
+	let resArr = [];
+	let nameArr = str.split(" ");
 
-    for (let i = 0; i < nameArr.length; i++) {
-        resArr.push(nameArr[i][0].toUpperCase());
-        resArr.push('.');
-    }
-    return resArr.join('');
+	for (let i = 0; i < nameArr.length; i++) {
+		resArr.push(nameArr[i][0].toUpperCase());
+		resArr.push(".");
+	}
+	return resArr.join("");
 }
 // console.log(toInitials('elon mask'));
 
 // 2 вариант
 function toInitialsSecond(name) {
-    let nameArr = name.split(' ');
+	let nameArr = name.split(" ");
 
-    let firstLetterArr = nameArr.map((el) => {
-        return el.slice(0, 1).toUpperCase() + '.';
-    });
+	let firstLetterArr = nameArr.map(el => {
+		return el.slice(0, 1).toUpperCase() + ".";
+	});
 
-    let initials = firstLetterArr.join('');
-    return initials;
+	let initials = firstLetterArr.join("");
+	return initials;
 }
 // console.log(toInitialsSecond('elon mask'));
 
@@ -106,17 +106,17 @@ function toInitialsSecond(name) {
     Дополнительно, функция должна выводить foo вместо чисел кратных 3, должна выводить bar вместо чисел, кратных 5 и должна выводить foobar вместо чисел, одновременно кратных и 3, и 5
 */
 function printNumbers(n) {
-    for (let i = 1; i <= n; i++) {
-        if (i % 5 === 0 && i % 3 === 0) {
-            console.log('foobar');
-        } else if (i % 3 === 0) {
-            console.log('foo');
-        } else if (i % 5 === 0) {
-            console.log('bar');
-        } else {
-            console.log(i);
-        }
-    }
+	for (let i = 1; i <= n; i++) {
+		if (i % 5 === 0 && i % 3 === 0) {
+			console.log("foobar");
+		} else if (i % 3 === 0) {
+			console.log("foo");
+		} else if (i % 5 === 0) {
+			console.log("bar");
+		} else {
+			console.log(i);
+		}
+	}
 }
 // printNumbers(20);
 
@@ -126,11 +126,9 @@ function printNumbers(n) {
     содержащий только уникальные значения из всех переданных массивов.
 */
 function getUniqueValues(arr1, arr2, arr3) {
-    const combinedArr = [...arr1, ...arr2, ...arr3];
-    let res = combinedArr.filter(
-        (element) => combinedArr.indexOf(element) === combinedArr.lastIndexOf(element),
-    );
-    return res;
+	const combinedArr = [...arr1, ...arr2, ...arr3];
+	let res = combinedArr.filter(element => combinedArr.indexOf(element) === combinedArr.lastIndexOf(element));
+	return res;
 }
 
 var array1 = [1, 2, 3];
@@ -144,32 +142,32 @@ getUniqueValues(array1, array2, array3);
 
 */
 function sumDigits(num) {
-    let arr = num.toString().split('');
-    let numsArr = [];
-    let sum = [];
+	let arr = num.toString().split("");
+	let numsArr = [];
+	let sum = [];
 
-    if (arr[0] === '-') {
-        arr.shift();
-    }
+	if (arr[0] === "-") {
+		arr.shift();
+	}
 
-    numsArr = arr.map(Number);
-    sum = numsArr.reduce((total, amount) => total + amount);
-    return sum;
+	numsArr = arr.map(Number);
+	sum = numsArr.reduce((total, amount) => total + amount);
+	return sum;
 }
 
 // console.log(sumDigits(-123));
 
 // 2 вариант
 function sumDigitsSecond(num) {
-    let moduleNumber = Math.abs(num);
-    let str = moduleNumber.toString();
-    let arr = str.split('');
+	let moduleNumber = Math.abs(num);
+	let str = moduleNumber.toString();
+	let arr = str.split("");
 
-    let res = arr.reduce((total, amount) => {
-        return Number(total) + Number(amount);
-    }, 0);
+	let res = arr.reduce((total, amount) => {
+		return Number(total) + Number(amount);
+	}, 0);
 
-    return res;
+	return res;
 }
 
 // console.log(sumDigitsSecond(-123));
@@ -179,24 +177,24 @@ function sumDigitsSecond(num) {
 
 */
 function minMax(arr) {
-    let res = [];
-    let assumedMin = arr[0];
-    let assumedMax = arr[arr.length - 1];
+	let res = [];
+	let assumedMin = arr[0];
+	let assumedMax = arr[arr.length - 1];
 
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < assumedMin) {
-            assumedMin = arr[i];
-        }
-    }
+	for (let i = 1; i < arr.length; i++) {
+		if (arr[i] < assumedMin) {
+			assumedMin = arr[i];
+		}
+	}
 
-    for (let i = arr.length - 2; i >= 0; i--) {
-        if (arr[i] > assumedMax) {
-            assumedMax = arr[i];
-        }
-    }
+	for (let i = arr.length - 2; i >= 0; i--) {
+		if (arr[i] > assumedMax) {
+			assumedMax = arr[i];
+		}
+	}
 
-    res.push(assumedMin, assumedMax);
-    return res;
+	res.push(assumedMin, assumedMax);
+	return res;
 }
 
 // console.log(minMax([2, 9, 10, 25, 47, 4, 1]))
@@ -205,12 +203,12 @@ function minMax(arr) {
 
 // 2 вариант
 function minMaxSecond(arr) {
-    let res = [];
-    let minValue = Math.min(...arr);
-    let maxValue = Math.max(...arr);
+	let res = [];
+	let minValue = Math.min(...arr);
+	let maxValue = Math.max(...arr);
 
-    res.push(minValue, maxValue);
-    return res;
+	res.push(minValue, maxValue);
+	return res;
 }
 // console.log(minMaxSecond([1]))
 
@@ -219,19 +217,19 @@ function minMaxSecond(arr) {
 
 */
 function accum(str) {
-    let strArr = str.split('');
-    let res = null;
+	let strArr = str.split("");
+	let res = null;
 
-    const duplicateArr = strArr.map((el, id) => {
-        return el.toUpperCase().repeat(id + 1);
-    });
+	const duplicateArr = strArr.map((el, id) => {
+		return el.toUpperCase().repeat(id + 1);
+	});
 
-    const arr = duplicateArr.map((el) => {
-        return el.charAt(0) + el.slice(1).toLowerCase();
-    });
+	const arr = duplicateArr.map(el => {
+		return el.charAt(0) + el.slice(1).toLowerCase();
+	});
 
-    res = arr.join('-');
-    return res;
+	res = arr.join("-");
+	return res;
 }
 
 // console.log(accum('abcd'));
@@ -239,14 +237,14 @@ function accum(str) {
 
 // 2 вариант
 function accumSecond(str) {
-    let arr = str.toUpperCase().split('');
+	let arr = str.toUpperCase().split("");
 
-    let repeatArr = arr.map((el, i) => {
-        return (el += el.repeat(i).toLowerCase());
-    });
+	let repeatArr = arr.map((el, i) => {
+		return (el += el.repeat(i).toLowerCase());
+	});
 
-    let resString = repeatArr.join('-');
-    return resString;
+	let resString = repeatArr.join("-");
+	return resString;
 }
 
 // console.log(accumSecond('cwAt'))
@@ -259,12 +257,12 @@ function accumSecond(str) {
 */
 
 function transformLetters(str) {
-    let arr = str.split('');
-    let res = arr.map((el) => {
-        return el.toUpperCase();
-    });
-    let resStr = res.join('');
-    return resStr;
+	let arr = str.split("");
+	let res = arr.map(el => {
+		return el.toUpperCase();
+	});
+	let resStr = res.join("");
+	return resStr;
 }
 
 // console.log(transformLetters('javascript is awesome'));
@@ -278,22 +276,22 @@ function transformLetters(str) {
 */
 // 1 вариант
 const jadenCasedStrings = function (str) {
-    const arr = str.split(' ');
-    let res = null;
-    res = arr
-        .map((el) => {
-            return el[0].toUpperCase() + el.slice(1);
-        })
-        .join(' ');
+	const arr = str.split(" ");
+	let res = null;
+	res = arr
+		.map(el => {
+			return el[0].toUpperCase() + el.slice(1);
+		})
+		.join(" ");
 
-    return res;
+	return res;
 };
 // console.log(jadenCasedStrings("How can mirrors be real if our eyes aren't real"));
 // 2 вариант
 String.prototype.toJadenCase = function () {
-    return this.split(' ')
-        .map((item) => item[0].toUpperCase() + item.slice(1))
-        .join(' ');
+	return this.split(" ")
+		.map(item => item[0].toUpperCase() + item.slice(1))
+		.join(" ");
 };
 
 /*
@@ -308,13 +306,13 @@ String.prototype.toJadenCase = function () {
         493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
 function digitalRoot(n) {
-    let nArr = n.toString().split('');
-    if (nArr.length <= 1) {
-        return n;
-    } else {
-        let arrNum = nArr.map(Number);
-        return digitalRoot(arrNum.reduce((total, amount) => total + amount, 0));
-    }
+	let nArr = n.toString().split("");
+	if (nArr.length <= 1) {
+		return n;
+	} else {
+		let arrNum = nArr.map(Number);
+		return digitalRoot(arrNum.reduce((total, amount) => total + amount, 0));
+	}
 }
 // console.log(digitalRoot(942));
 
@@ -332,19 +330,19 @@ function digitalRoot(n) {
     26  =>  fals    
 */
 var isSquare = function (n) {
-    if (n < 0) {
-        return false;
-    }
-    if (n === 0) {
-        return true;
-    } else if (Math.round(Math.sqrt(n)) * Math.round(Math.sqrt(n)) === n) {
-        return true;
-    } else return false;
+	if (n < 0) {
+		return false;
+	}
+	if (n === 0) {
+		return true;
+	} else if (Math.round(Math.sqrt(n)) * Math.round(Math.sqrt(n)) === n) {
+		return true;
+	} else return false;
 };
 // console.log(isSquare(25));
 // 2 вариант
 function isSquare(n) {
-    return Math.sqrt(n) % 1 === 0;
+	return Math.sqrt(n) % 1 === 0;
 }
 
 /*
@@ -361,18 +359,18 @@ function isSquare(n) {
      
 */
 function printerError(s) {
-    const sArr = s.split('');
-    const lettersArray = [];
-    let res = [];
+	const sArr = s.split("");
+	const lettersArray = [];
+	let res = [];
 
-    for (let letterCode = 97; letterCode <= 109; letterCode++) {
-        lettersArray.push(String.fromCharCode(letterCode));
-    }
+	for (let letterCode = 97; letterCode <= 109; letterCode++) {
+		lettersArray.push(String.fromCharCode(letterCode));
+	}
 
-    let errors = sArr.filter((letter) => lettersArray.indexOf(letter) === -1);
+	let errors = sArr.filter(letter => lettersArray.indexOf(letter) === -1);
 
-    res.push(errors.length + '/' + sArr.length);
-    return res.join('');
+	res.push(errors.length + "/" + sArr.length);
+	return res.join("");
 }
 
 // console.log(printerError('aaabbbbhaijjjm'));
@@ -390,17 +388,17 @@ function printerError(s) {
      
 */
 function solution(str) {
-    let res = [];
+	let res = [];
 
-    for (let i = 0; i < str.length; i += 2) {
-        res.push(str.slice(i, i + 2));
-    }
+	for (let i = 0; i < str.length; i += 2) {
+		res.push(str.slice(i, i + 2));
+	}
 
-    if (str.length % 2 !== 0) {
-        let lastEl = res.pop();
-        res.push(lastEl + '_');
-        return res;
-    } else return res;
+	if (str.length % 2 !== 0) {
+		let lastEl = res.pop();
+		res.push(lastEl + "_");
+		return res;
+	} else return res;
 }
 
 // console.log(solution('abc'));
@@ -423,88 +421,88 @@ function solution(str) {
 */
 
 var nato = (function () {
-    var letters = {
-        A: 'Alpha',
-        B: 'Bravo',
-        C: 'Charlie',
-        D: 'Delta',
-        E: 'Echo',
-        F: 'Foxtrot',
-        G: 'Golf',
-        H: 'Hotel',
-        I: 'India',
-        J: 'Juliett',
-        K: 'Kilo',
-        L: 'Lima',
-        M: 'Mike',
-        N: 'November',
-        O: 'Oscar',
-        P: 'Papa',
-        Q: 'Quebec',
-        R: 'Romeo',
-        S: 'Sierra',
-        T: 'Tango',
-        U: 'Uniform',
-        V: 'Victor',
-        W: 'Whiskey',
-        X: 'X-ray',
-        Y: 'Yankee',
-        Z: 'Zulu',
-    };
+	var letters = {
+		A: "Alpha",
+		B: "Bravo",
+		C: "Charlie",
+		D: "Delta",
+		E: "Echo",
+		F: "Foxtrot",
+		G: "Golf",
+		H: "Hotel",
+		I: "India",
+		J: "Juliett",
+		K: "Kilo",
+		L: "Lima",
+		M: "Mike",
+		N: "November",
+		O: "Oscar",
+		P: "Papa",
+		Q: "Quebec",
+		R: "Romeo",
+		S: "Sierra",
+		T: "Tango",
+		U: "Uniform",
+		V: "Victor",
+		W: "Whiskey",
+		X: "X-ray",
+		Y: "Yankee",
+		Z: "Zulu",
+	};
 
-    return function (word) {
-        let arrWord = word.split('');
-        let res = [];
+	return function (word) {
+		let arrWord = word.split("");
+		let res = [];
 
-        for (let i = 0; i < arrWord.length; i++) {
-            if (letters.hasOwnProperty(arrWord[i].toUpperCase())) {
-                res.push(letters[arrWord[i].toUpperCase()]);
-            }
-        }
+		for (let i = 0; i < arrWord.length; i++) {
+			if (letters.hasOwnProperty(arrWord[i].toUpperCase())) {
+				res.push(letters[arrWord[i].toUpperCase()]);
+			}
+		}
 
-        return res.join(' ');
-    };
+		return res.join(" ");
+	};
 })();
 
 // 2 вариант
 var nato = (function () {
-    var letters = {
-        A: 'Alpha',
-        B: 'Bravo',
-        C: 'Charlie',
-        D: 'Delta',
-        E: 'Echo',
-        F: 'Foxtrot',
-        G: 'Golf',
-        H: 'Hotel',
-        I: 'India',
-        J: 'Juliett',
-        K: 'Kilo',
-        L: 'Lima',
-        M: 'Mike',
-        N: 'November',
-        O: 'Oscar',
-        P: 'Papa',
-        Q: 'Quebec',
-        R: 'Romeo',
-        S: 'Sierra',
-        T: 'Tango',
-        U: 'Uniform',
-        V: 'Victor',
-        W: 'Whiskey',
-        X: 'X-ray',
-        Y: 'Yankee',
-        Z: 'Zulu',
-    };
+	var letters = {
+		A: "Alpha",
+		B: "Bravo",
+		C: "Charlie",
+		D: "Delta",
+		E: "Echo",
+		F: "Foxtrot",
+		G: "Golf",
+		H: "Hotel",
+		I: "India",
+		J: "Juliett",
+		K: "Kilo",
+		L: "Lima",
+		M: "Mike",
+		N: "November",
+		O: "Oscar",
+		P: "Papa",
+		Q: "Quebec",
+		R: "Romeo",
+		S: "Sierra",
+		T: "Tango",
+		U: "Uniform",
+		V: "Victor",
+		W: "Whiskey",
+		X: "X-ray",
+		Y: "Yankee",
+		Z: "Zulu",
+	};
 
-    return function (word) {
-        return word
-            .split('')
-            .map(function (v) {
-                return letters[v.toUpperCase()];
-            })
-            .join(' ');
-    };
+	return function (word) {
+		return word
+			.split("")
+			.map(function (v) {
+				return letters[v.toUpperCase()];
+			})
+			.join(" ");
+	};
 })();
 
 /*
@@ -524,20 +522,20 @@ The correct answer would be 17.
 */
 
 function countSheeps(sheep) {
-    let count = 0;
+	let count = 0;
 
-    sheep.map((s) => {
-        if (s === true) {
-            count++;
-        } else {
-        }
-    });
+	sheep.map(s => {
+		if (s === true) {
+			count++;
+		} else {
+		}
+	});
 
-    return count;
+	return count;
 }
 // 2 вариант
 function countSheeps(arrayOfSheeps) {
-    return arrayOfSheeps.filter(Boolean).length;
+	return arrayOfSheeps.filter(Boolean).length;
 }
 
 /*
@@ -576,33 +574,33 @@ function countSheeps(arrayOfSheeps) {
     }
 */
 
-const whosOnline = (friends) => {
-    const res = {};
+const whosOnline = friends => {
+	const res = {};
 
-    if (friends.length === 0) {
-        return res;
-    } else {
-        res.online = [];
-        res.offline = [];
-        res.away = [];
+	if (friends.length === 0) {
+		return res;
+	} else {
+		res.online = [];
+		res.offline = [];
+		res.away = [];
 
-        friends.map((friend) => {
-            if (friend.status === 'offline') {
-                res.offline.push(friend.username);
-            }
-            if (friend.status === 'online' && friend.lastActivity > 10) {
-                res.away.push(friend.username);
-            } else if (friend.status === 'online' && friend.lastActivity <= 10) {
-                res.online.push(friend.username);
-            }
-        });
+		friends.map(friend => {
+			if (friend.status === "offline") {
+				res.offline.push(friend.username);
+			}
+			if (friend.status === "online" && friend.lastActivity > 10) {
+				res.away.push(friend.username);
+			} else if (friend.status === "online" && friend.lastActivity <= 10) {
+				res.online.push(friend.username);
+			}
+		});
 
-        if (res.online.length === 0) {
-            delete res.online;
-        }
+		if (res.online.length === 0) {
+			delete res.online;
+		}
 
-        return res;
-    }
+		return res;
+	}
 };
 
 // console.log(
@@ -642,7 +640,7 @@ const whosOnline = (friends) => {
 */
 
 function sortByLength(array) {
-    return array.slice().sort((a, b) => a.length - b.length);
+	return array.slice().sort((a, b) => a.length - b.length);
 }
 
 // console.log(sortByLength(['Beg', 'Life', 'I', 'To']));
@@ -660,13 +658,13 @@ function sortByLength(array) {
 */
 
 const areaOrPerimeter = function (l, w) {
-    let r = null;
+	let r = null;
 
-    if (l === w) {
-        return (r = l * w);
-    } else {
-        return (r = (l + w) * 2);
-    }
+	if (l === w) {
+		return (r = l * w);
+	} else {
+		return (r = (l + w) * 2);
+	}
 };
 
 /*
@@ -676,11 +674,11 @@ const areaOrPerimeter = function (l, w) {
 */
 
 var findAverage = function (nums) {
-    const sum = nums.reduce(function (currentSum, currentNumber) {
-        return currentSum + currentNumber;
-    }, 0);
+	const sum = nums.reduce(function (currentSum, currentNumber) {
+		return currentSum + currentNumber;
+	}, 0);
 
-    return sum / nums.length;
+	return sum / nums.length;
 };
 
 // console.log(findAverage([1, 3, 5, 7]));
@@ -699,17 +697,17 @@ var findAverage = function (nums) {
 */
 
 var number = function (array) {
-    let newArr = [];
+	let newArr = [];
 
-    if (array.length === 0) {
-        newArr = [];
-    } else {
-        newArr = array.map((element, index) => {
-            return index + 1 + ': ' + element;
-        });
-    }
+	if (array.length === 0) {
+		newArr = [];
+	} else {
+		newArr = array.map((element, index) => {
+			return index + 1 + ": " + element;
+		});
+	}
 
-    return newArr;
+	return newArr;
 };
 
 // console.log(number(['a', 'b', 'c']));
@@ -727,12 +725,12 @@ var number = function (array) {
 */
 
 function firstNonConsecutive(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] !== arr[i + 1] - 1) {
-            return arr[i + 1];
-        }
-    }
-    return null;
+	for (let i = 0; i < arr.length - 1; i++) {
+		if (arr[i] !== arr[i + 1] - 1) {
+			return arr[i + 1];
+		}
+	}
+	return null;
 }
 
 // console.log(firstNonConsecutive([1, 2, 3, 4]));
@@ -748,10 +746,10 @@ function firstNonConsecutive(arr) {
 */
 
 function nameShuffler(str) {
-    return str.split(' ').reverse().join(' ');
+	return str.split(" ").reverse().join(" ");
 }
 
-nameShuffler('john McClane');
+nameShuffler("john McClane");
 
 /*
   25. 8 kyu To square(root) or not to square(root)
@@ -769,14 +767,14 @@ nameShuffler('john McClane');
 */
 
 function squareOrSquareRoot(array) {
-    let newArr = array.map((el) => {
-        if (Number.isInteger(Math.sqrt(el))) {
-            return (el = Math.sqrt(el));
-        } else {
-            return (el = el * el);
-        }
-    });
-    return newArr;
+	let newArr = array.map(el => {
+		if (Number.isInteger(Math.sqrt(el))) {
+			return (el = Math.sqrt(el));
+		} else {
+			return (el = el * el);
+		}
+	});
+	return newArr;
 }
 
 // console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1]));
@@ -797,16 +795,16 @@ function squareOrSquareRoot(array) {
 */
 
 function evenNumbers(array, number) {
-    let res = [];
-    let counter = number;
+	let res = [];
+	let counter = number;
 
-    for (let i = array.length - 1; i >= 0; i--) {
-        if (array[i] % 2 === 0 && counter > 0) {
-            res.push(array[i]);
-            counter--;
-        }
-    }
-    return res.reverse();
+	for (let i = array.length - 1; i >= 0; i--) {
+		if (array[i] % 2 === 0 && counter > 0) {
+			res.push(array[i]);
+			counter--;
+		}
+	}
+	return res.reverse();
 }
 
 // 2 вариант
@@ -828,13 +826,13 @@ function evenNumbers(array, number) {
 */
 
 function findDup(arr) {
-    console.log(arr.sort());
-    let duplicateValue;
-    duplicateValue = arr.filter((elem) => {
-        return arr.indexOf(elem) !== arr.lastIndexOf(elem);
-    });
+	console.log(arr.sort());
+	let duplicateValue;
+	duplicateValue = arr.filter(elem => {
+		return arr.indexOf(elem) !== arr.lastIndexOf(elem);
+	});
 
-    return duplicateValue[0];
+	return duplicateValue[0];
 }
 
 // 2 вариант
@@ -871,12 +869,12 @@ function findDup(arr) {
 */
 
 var number = function (busStops) {
-    var totalPeople = 0;
-    for (var i = 0; i < busStops.length; i++) {
-        totalPeople += busStops[i][0];
-        totalPeople -= busStops[i][1];
-    }
-    return totalPeople;
+	var totalPeople = 0;
+	for (var i = 0; i < busStops.length; i++) {
+		totalPeople += busStops[i][0];
+		totalPeople -= busStops[i][1];
+	}
+	return totalPeople;
 };
 
 // 2 вариант
@@ -918,10 +916,10 @@ var number = function (busStops) {
 */
 
 function closeCompare(a, b, margin = 0) {
-    // ...
-    if (a < b - margin) return -1;
-    if (a - margin > b) return 1;
-    return 0;
+	// ...
+	if (a < b - margin) return -1;
+	if (a - margin > b) return 1;
+	return 0;
 }
 
 // console.log(closeCompare(5, 5, 7));
@@ -940,22 +938,22 @@ function closeCompare(a, b, margin = 0) {
 */
 
 function addBinary(a, b) {
-    const arr = [];
-    arr.push(a);
-    arr.push(b);
+	const arr = [];
+	arr.push(a);
+	arr.push(b);
 
-    let decimalNumber = arr.reduce((a, b) => {
-        return a + b;
-    }, 0);
+	let decimalNumber = arr.reduce((a, b) => {
+		return a + b;
+	}, 0);
 
-    let binaryString = decimalNumber.toString(2);
+	let binaryString = decimalNumber.toString(2);
 
-    return binaryString;
+	return binaryString;
 }
 
 // 2 вариант
 function addBinary(a, b) {
-    return (a + b).toString(2);
+	return (a + b).toString(2);
 }
 
 // addBinary(5, 9);
@@ -975,22 +973,22 @@ function addBinary(a, b) {
 */
 
 function longest(s1, s2) {
-    const arrS1 = s1.split('');
-    const arrS2 = s2.split('');
-    let arrS3 = [];
-    let arrS3NoDouble = [];
+	const arrS1 = s1.split("");
+	const arrS2 = s2.split("");
+	let arrS3 = [];
+	let arrS3NoDouble = [];
 
-    arrS1.forEach((item) => {
-        arrS3.push(item);
-    });
+	arrS1.forEach(item => {
+		arrS3.push(item);
+	});
 
-    arrS2.forEach((item) => {
-        arrS3.push(item);
-    });
+	arrS2.forEach(item => {
+		arrS3.push(item);
+	});
 
-    arrS3NoDouble = [...new Set(arrS3)].sort();
+	arrS3NoDouble = [...new Set(arrS3)].sort();
 
-    return arrS3NoDouble.join('');
+	return arrS3NoDouble.join("");
 }
 
 // 2 вариант
@@ -1014,11 +1012,11 @@ function longest(s1, s2) {
 */
 
 function mygcd(x, y) {
-    if (y === 0) {
-        return x;
-    } else {
-        return mygcd(y, x % y);
-    }
+	if (y === 0) {
+		return x;
+	} else {
+		return mygcd(y, x % y);
+	}
 }
 
 // console.log(mygcd(30, 12));
@@ -1031,7 +1029,7 @@ function mygcd(x, y) {
 // 'word'   =>  'drow'
 
 function solution(str) {
-    return str.split('').reverse().join('');
+	return str.split("").reverse().join("");
 }
 // solution('world');
 
@@ -1042,7 +1040,7 @@ function solution(str) {
 */
 
 function boolToWord(bool) {
-    return bool === true ? 'Yes' : 'No';
+	return bool === true ? "Yes" : "No";
 }
 
 /*
@@ -1052,7 +1050,7 @@ function boolToWord(bool) {
 */
 
 function removeChar(str) {
-    return str.slice(1, -1);
+	return str.slice(1, -1);
 }
 
 /*
@@ -1066,15 +1064,15 @@ function removeChar(str) {
 */
 
 function repeatStr(n, s) {
-    let i = 0;
-    let res = [];
+	let i = 0;
+	let res = [];
 
-    while (i !== n) {
-        res.push(s);
-        i++;
-    }
+	while (i !== n) {
+		res.push(s);
+		i++;
+	}
 
-    return res.join('');
+	return res.join("");
 }
 
 // console.log(repeatStr(5, '#'));
@@ -1090,21 +1088,15 @@ function repeatStr(n, s) {
 */
 
 function getCount(str) {
-    let vowelCount = 0;
+	let vowelCount = 0;
 
-    for (let i = 0; i < str.length; i++) {
-        if (
-            str[i] === 'a' ||
-            str[i] === 'e' ||
-            str[i] === 'i' ||
-            str[i] === 'o' ||
-            str[i] === 'u'
-        ) {
-            vowelCount++;
-        }
-    }
+	for (let i = 0; i < str.length; i++) {
+		if (str[i] === "a" || str[i] === "e" || str[i] === "i" || str[i] === "o" || str[i] === "u") {
+			vowelCount++;
+		}
+	}
 
-    return vowelCount;
+	return vowelCount;
 }
 
 // console.log(getCount('abracadabra'));
@@ -1119,21 +1111,21 @@ function getCount(str) {
     Note: if there is nothing to sum, the sum is default to 0.
 */
 function positiveSum(arr) {
-    let posArr = [];
-    let sum;
+	let posArr = [];
+	let sum;
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 0) {
-            posArr.push(arr[i]);
-        }
-    }
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] > 0) {
+			posArr.push(arr[i]);
+		}
+	}
 
-    if (posArr.length === 0) {
-        return 0;
-    } else {
-        sum = posArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-        return sum;
-    }
+	if (posArr.length === 0) {
+		return 0;
+	} else {
+		sum = posArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+		return sum;
+	}
 }
 // console.log(positiveSum([1, -2, 3, 4, 5]));
 
@@ -1148,32 +1140,32 @@ function positiveSum(arr) {
 */
 
 function highAndLow(numbers) {
-    let numbersArr = numbers.split(' ').map(Number);
-    let assumeLowest = numbersArr[0];
-    let assummeHighest = numbersArr[numbersArr.length - 1];
-    let res = [];
+	let numbersArr = numbers.split(" ").map(Number);
+	let assumeLowest = numbersArr[0];
+	let assummeHighest = numbersArr[numbersArr.length - 1];
+	let res = [];
 
-    for (let i = 1; i < numbersArr.length; i++) {
-        if (numbersArr[i] < assumeLowest) {
-            assumeLowest = numbersArr[i];
-        }
-    }
+	for (let i = 1; i < numbersArr.length; i++) {
+		if (numbersArr[i] < assumeLowest) {
+			assumeLowest = numbersArr[i];
+		}
+	}
 
-    for (let i = numbersArr.length - 1; i >= 0; i--) {
-        if (numbersArr[i] > assummeHighest) {
-            assummeHighest = numbersArr[i];
-        }
-    }
+	for (let i = numbersArr.length - 1; i >= 0; i--) {
+		if (numbersArr[i] > assummeHighest) {
+			assummeHighest = numbersArr[i];
+		}
+	}
 
-    res.push(assummeHighest, assumeLowest);
+	res.push(assummeHighest, assumeLowest);
 
-    return String(res.join(' '));
+	return String(res.join(" "));
 }
 
 // 2 вариант
 function highAndLow(numbers) {
-    numbers = numbers.split(' ');
-    return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+	numbers = numbers.split(" ");
+	return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
 }
 
 // console.log(
@@ -1196,7 +1188,7 @@ function highAndLow(numbers) {
 */
 
 function descendingOrder(n) {
-    return parseInt(n.toString().split('').sort().reverse().join(''));
+	return parseInt(n.toString().split("").sort().reverse().join(""));
 }
 
 // console.log(descendingOrder(279));
@@ -1207,7 +1199,7 @@ function descendingOrder(n) {
 */
 
 function hidePhoneNumber(phoneNumber) {
-    return phoneNumber.slice(0, 2) + '*****' + phoneNumber.slice(phoneNumber.length - 1);
+	return phoneNumber.slice(0, 2) + "*****" + phoneNumber.slice(phoneNumber.length - 1);
 }
 
 // console.log(hidePhoneNumber('899999999'));
@@ -1223,15 +1215,15 @@ function hidePhoneNumber(phoneNumber) {
 */
 
 function repeatStr(n, s) {
-    let i = 0;
-    let res = [];
+	let i = 0;
+	let res = [];
 
-    while (i !== n) {
-        res.push(s);
-        i++;
-    }
+	while (i !== n) {
+		res.push(s);
+		i++;
+	}
 
-    return res.join('');
+	return res.join("");
 }
 
 // 43. Дан массив операций:
@@ -1250,25 +1242,25 @@ function repeatStr(n, s) {
 //   }
 
 function groupByYear(operations) {
-    const result = {};
+	const result = {};
 
-    operations.forEach((item) => {
-        const [year, month, day] = item.date.split('-'); // Разделяем дату на год и месяц-день
-        const monthDay = `${month}-${day}`; // Объединяем месяц и день
+	operations.forEach(item => {
+		const [year, month, day] = item.date.split("-"); // Разделяем дату на год и месяц-день
+		const monthDay = `${month}-${day}`; // Объединяем месяц и день
 
-        if (!result[year]) {
-            result[year] = []; // создаем новый для года
-        }
+		if (!result[year]) {
+			result[year] = []; // создаем новый для года
+		}
 
-        result[year].push(monthDay);
-    });
-    return result;
+		result[year].push(monthDay);
+	});
+	return result;
 }
 
 const arr = [
-    { date: '2023-07-10', amount: '100' },
-    { date: '2024-01-31', amount: '800' },
-    { date: '2024-01-20', amount: '900' },
+	{ date: "2023-07-10", amount: "100" },
+	{ date: "2024-01-31", amount: "800" },
+	{ date: "2024-01-20", amount: "900" },
 ];
 
 // console.log(groupByYear(arr));
@@ -1286,30 +1278,30 @@ const arr = [
 */
 
 function fetchWithRetries(retriesCount, ...fetchArgs) {
-    // Внутренняя функция для выполнения запроса с попытками
-    function executeFetch(attemptsLeft) {
-        return fetch(...fetchArgs)
-            .then((response) => {
-                if (!response.ok) {
-                    // Если ответ не успешен, кидаем ошибку
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                // Если ответ успешен, возвращаем его
-                return response;
-            })
-            .catch((error) => {
-                if (attemptsLeft > 0) {
-                    // Если остались попытки, уменьшаем их количество и повторяем запрос
-                    console.log(`Retrying... Attempts left: ${attemptsLeft}`);
-                    return executeFetch(attemptsLeft - 1);
-                }
-                // Если попыток не осталось, кидаем ошибку
-                throw error;
-            });
-    }
+	// Внутренняя функция для выполнения запроса с попытками
+	function executeFetch(attemptsLeft) {
+		return fetch(...fetchArgs)
+			.then(response => {
+				if (!response.ok) {
+					// Если ответ не успешен, кидаем ошибку
+					throw new Error(`Request failed with status ${response.status}`);
+				}
+				// Если ответ успешен, возвращаем его
+				return response;
+			})
+			.catch(error => {
+				if (attemptsLeft > 0) {
+					// Если остались попытки, уменьшаем их количество и повторяем запрос
+					console.log(`Retrying... Attempts left: ${attemptsLeft}`);
+					return executeFetch(attemptsLeft - 1);
+				}
+				// Если попыток не осталось, кидаем ошибку
+				throw error;
+			});
+	}
 
-    // Запуск первой попытки с начальным количеством попыток
-    return executeFetch(retriesCount);
+	// Запуск первой попытки с начальным количеством попыток
+	return executeFetch(retriesCount);
 }
 
 // Пример использования
@@ -1324,26 +1316,26 @@ function fetchWithRetries(retriesCount, ...fetchArgs) {
 */
 
 function sayHello() {
-    return 'Hello';
+	return "Hello";
 }
 
 function limit(fn, limit) {
-    if (typeof fn !== 'function') {
-        throw new Error('Первый параметр должен быть функцией');
-    }
-    if (typeof limit !== 'number' || limit < 0) {
-        throw new Error('Второй параметр должен быть неотрицательным целым числом');
-    }
-    limit = Math.floor(limit);
-    let count = 0;
+	if (typeof fn !== "function") {
+		throw new Error("Первый параметр должен быть функцией");
+	}
+	if (typeof limit !== "number" || limit < 0) {
+		throw new Error("Второй параметр должен быть неотрицательным целым числом");
+	}
+	limit = Math.floor(limit);
+	let count = 0;
 
-    return function (...args) {
-        if (count >= limit) {
-            return undefined;
-        }
-        count++;
-        return fn(...args);
-    };
+	return function (...args) {
+		if (count >= limit) {
+			return undefined;
+		}
+		count++;
+		return fn(...args);
+	};
 }
 
 // const zeroLimit = limit(sayHello, 2.2);
@@ -1366,16 +1358,16 @@ function limit(fn, limit) {
 */
 
 function squareDigits(num) {
-    if (num === 0) return num;
+	if (num === 0) return num;
 
-    let res = [];
-    let arr = num.toString().split('');
+	let res = [];
+	let arr = num.toString().split("");
 
-    for (let i = 0; i < arr.length; i++) {
-        res.push(Math.pow(arr[i], 2));
-    }
+	for (let i = 0; i < arr.length; i++) {
+		res.push(Math.pow(arr[i], 2));
+	}
 
-    return +res.join('');
+	return +res.join("");
 }
 
 // squareDigits(9119);
@@ -1398,37 +1390,37 @@ function squareDigits(num) {
 */
 
 const rates = [
-    { date: '2023-12-29', code: 'USD', rate: 96.7815 },
-    { date: '2024-02-19', code: 'USD', rate: 93.7815 },
-    { date: '2024-01-16', code: 'USD', rate: 92.5552 },
-    { date: '2024-01-15', code: 'USD', rate: 92.8812 },
-    { date: '2024-02-19', code: 'EUR', rate: 99.3468 },
-    { date: '2024-01-16', code: 'EUR', rate: 98.561 },
-    { date: '2024-01-15', code: 'EUR', rate: 99.1425 },
+	{ date: "2023-12-29", code: "USD", rate: 96.7815 },
+	{ date: "2024-02-19", code: "USD", rate: 93.7815 },
+	{ date: "2024-01-16", code: "USD", rate: 92.5552 },
+	{ date: "2024-01-15", code: "USD", rate: 92.8812 },
+	{ date: "2024-02-19", code: "EUR", rate: 99.3468 },
+	{ date: "2024-01-16", code: "EUR", rate: 98.561 },
+	{ date: "2024-01-15", code: "EUR", rate: 99.1425 },
 ];
 
 function getRate(date, code) {
-    // Преобразуем входную дату в объект Date
-    let queryDate = new Date(date);
-    console.log('queryDate', queryDate);
+	// Преобразуем входную дату в объект Date
+	let queryDate = new Date(date);
+	console.log("queryDate", queryDate);
 
-    // Сортируем курсы по дате
-    rates.sort((a, b) => new Date(a.date) - new Date(b.date));
+	// Сортируем курсы по дате
+	rates.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    // Ищем курсы для данной валюты
-    let currencyRates = rates.filter((rate) => rate.code === code);
+	// Ищем курсы для данной валюты
+	let currencyRates = rates.filter(rate => rate.code === code);
 
-    // Найдем актуальный курс
-    for (let i = currencyRates.length - 1; i >= 0; i--) {
-        let rateDate = new Date(currencyRates[i].date);
+	// Найдем актуальный курс
+	for (let i = currencyRates.length - 1; i >= 0; i--) {
+		let rateDate = new Date(currencyRates[i].date);
 
-        if (queryDate >= rateDate) {
-            return currencyRates[i].rate;
-        }
-    }
+		if (queryDate >= rateDate) {
+			return currencyRates[i].rate;
+		}
+	}
 
-    // Если нет подходящего курса, возвращаем null или можно выбросить ошибку
-    return null;
+	// Если нет подходящего курса, возвращаем null или можно выбросить ошибку
+	return null;
 }
 
 // Пример использования:
@@ -1450,14 +1442,14 @@ function getRate(date, code) {
 */
 
 function sumTwoSmallestNumbers(numbers) {
-    let lowNum1 = Math.min(...numbers);
-    let index = numbers.indexOf(lowNum1);
+	let lowNum1 = Math.min(...numbers);
+	let index = numbers.indexOf(lowNum1);
 
-    numbers.splice(index, 1);
+	numbers.splice(index, 1);
 
-    let lowNum2 = Math.min(...numbers);
+	let lowNum2 = Math.min(...numbers);
 
-    return lowNum1 + lowNum2;
+	return lowNum1 + lowNum2;
 }
 
 // console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
@@ -1487,7 +1479,7 @@ function sumTwoSmallestNumbers(numbers) {
 */
 
 function arrayDiff(a, b) {
-    return a.filter((el) => !b.includes(el));
+	return a.filter(el => !b.includes(el));
 }
 
 // console.log(arrayDiff([1, 2, 2], [2]));
@@ -1505,7 +1497,223 @@ function arrayDiff(a, b) {
 */
 
 function filter_list(l) {
-    return l.filter((el) => typeof el === 'number');
+	return l.filter(el => typeof el === "number");
 }
 
-console.log(filter_list([1, 'a', 'b', 0, 15]));
+// console.log(filter_list([1, 'a', 'b', 0, 15]));
+
+/*
+  51. 
+
+   Условие:
+    У вас есть объект, где ключи являются строками, а значениями — массивами чисел. Вам нужно отсортировать ключи объекта по следующему критерию:
+
+    По сумме всех чисел в массиве, соответствующем каждому ключу (по убыванию).
+    Если суммы равны, отсортируйте ключи по длине массива (по убыванию).
+
+    Входной объект:
+    const data = {
+      a: [1, 2, 3],
+      b: [5, 5, 5],
+      c: [1, 1],
+      d: [2, 2, 2, 2],
+    };
+
+    Ожидаемый результат:
+
+    После сортировки объект должен быть преобразован в новый объект, где ключи отсортированы по указанным критериям. В данном случае результат будет:
+    {
+      b: [5, 5, 5],     // Сумма: 15, длина: 3
+      d: [2, 2, 2, 2],  // Сумма: 8, длина: 4
+      a: [1, 2, 3],     // Сумма: 6, длина: 3
+      c: [1, 1]         // Сумма: 2, длина: 2
+    }
+*/
+
+function sortObjectByArray(data) {
+	const keys = Object.keys(data); // Получаем все ключи объекта
+	const sortedData = {};
+}
+
+/*
+  52. Написать функцию getByPath, которая принимает объект и строку, представляющую путь, разделенный точками. Функция должна следовать пути и вернуть значение, на которое путь указывает. Если какая-либо часть пути не существует, функция должна вернуть undefined.
+
+Пример:
+
+const obj = { inner: { test: { value: "hello world" } } };
+
+const path = "inner.test.value";
+
+console.log(getByPath(obj, path)); // Должно вывести "hello world"
+
+console.log(getByPath(obj, "inner.test")); // Должно вывести объект { value: "hello world" }
+
+console.log(getByPath(obj, "inner.nonExistentKey")); // Должно вывести undefined
+
+console.log(getByPath(obj, "")); // Должно вывести undefined или объект целиком в зависимости от реализации
+*/
+
+const obj = { inner: { test: { value: "hello world" } } };
+const path = "inner.test.value";
+
+function getByPath(obj, str) {}
+
+getByPath(obj, path);
+
+/*
+  53. ### Мы в Авито любим проводить соревнования, — недавно мы устроили чемпионат по шагам. И вот настало время подводить итоги!
+
+Необходимо определить userIds участников, которые прошли наибольшее количество шагов steps за все дни, не пропустив ни одного дня.
+*/
+function findChampions(statistics) {
+	// Объект для хранения суммарного количества шагов каждого пользователя
+	const userSteps = {};
+	const totalDays = statistics.length; // Общее количество дней
+
+	// Проходим по каждому дню
+	for (const day of statistics) {
+		// Проходим по каждому участнику за день
+		for (const entry of day) {
+			const { userId, steps } = entry;
+
+			// Если пользователь уже есть в userSteps, добавляем шаги за текущий день
+			if (userSteps[userId]) {
+				userSteps[userId].steps += steps;
+				userSteps[userId].days += 1;
+			} else {
+				// Если пользователь встречается впервые, инициализируем его
+				userSteps[userId] = { steps: steps, days: 1 };
+			}
+		}
+	}
+
+	// Фильтруем только тех пользователей, которые участвовали все дни
+	const champions = Object.entries(userSteps)
+		.filter(([userId, data]) => data.days === totalDays)
+		.map(([userId, data]) => ({
+			userId: Number(userId),
+			steps: data.steps,
+		}));
+
+	// Находим максимальное количество шагов среди оставшихся участников
+	const maxSteps = Math.max(...champions.map(user => user.steps));
+
+	// Определяем пользователей с максимальным количеством шагов
+	const resultUserIds = champions.filter(user => user.steps === maxSteps).map(user => user.userId);
+
+	return {
+		userIds: resultUserIds,
+		steps: maxSteps,
+	};
+}
+
+// Пример 1
+const statistics1 = [
+	[
+		{ userId: 1, steps: 1000 },
+		{ userId: 2, steps: 1500 },
+	],
+	[{ userId: 2, steps: 1000 }],
+];
+// console.log(findChampions(statistics1)); // { userIds: [2], steps: 2500 }
+
+// Пример 2
+const statistics2 = [
+	[
+		{ userId: 1, steps: 2000 },
+		{ userId: 2, steps: 1500 },
+	],
+	[{ userId: 1, steps: 3500 }],
+];
+// console.log(findChampions(statistics2)); // { userIds: [1], steps: 5500 }
+
+/*
+  54. Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+    Examples input/output:
+
+    XO("ooxx") => true
+    XO("xooxx") => false
+    XO("ooxXm") => true
+    XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+    XO("zzoo") => false
+*/
+
+function XO(str) {
+	let xCount = 0;
+	let oCount = 0;
+
+	for (let i = 0; i < str.length; i++) {
+		if (str[i].toLowerCase() === "x") {
+			xCount++;
+		} else if (str[i].toLowerCase() === "o") {
+			oCount++;
+		}
+	}
+
+	if (xCount === oCount) {
+		return true;
+	}
+	return false;
+}
+
+// console.log(XO("xxMm"));
+
+// clever
+// const XO = str => {
+// 	str = str.toLowerCase().split("");
+// 	return str.filter(x => x === "x").length === str.filter(x => x === "o").length;
+// };
+
+/*
+  55. Simple, given a string of words, return the length of the shortest word(s).
+
+    String will never be empty and you do not need to account for different data types.
+*/
+
+function findShort(s) {
+	let arr = s.split(" ");
+	let assumeShortest = arr[0];
+
+	for (let i = 1; i < arr.length; i++) {
+		if (arr[i].length < assumeShortest.length) {
+			assumeShortest = arr[i];
+		}
+	}
+
+	return assumeShortest.length;
+}
+
+// console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+
+// clever
+// function findShort(s){
+//     return Math.min(...s.split(" ").map (s => s.length));
+// }
+
+/*
+  56. Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+    Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+    "4556364607935616" --> "############5616"
+     "64607935616" -->      "#######5616"
+               "1" -->                "1"
+                "" -->                 ""
+
+    // "What was the name of your first pet?"
+    "Skippy" --> "##ippy"
+    "Nananananananananananananananana Batman!" --> "####################################man!"
+*/
+
+function maskify(cc) {
+	let arr = cc.split("");
+	let lastFour = cc.slice(-4);
+	let charCount = cc.slice(0, -4).length;
+
+	let res = "#".repeat(charCount) + lastFour;
+
+	return res;
+}
+
+console.log(maskify("4556364607935616"));

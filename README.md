@@ -57,3 +57,9 @@
 48. Sum of two lowest positive integers 7 kyu;
 49. Array.diff 6 kyu;
 50. List Filtering 7 kyu;
+51. тех собес сфера;
+52. getByPath - Яндекс
+53. Авито
+54. 7 kyu Exes and Ohs;
+55. 7 kyu Shortest Word;
+56. 7 kyu Credit Card Mask;
