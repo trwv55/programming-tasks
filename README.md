@@ -63,3 +63,9 @@
 54. 7 kyu Exes and Ohs;
 55. 7 kyu Shortest Word;
 56. 7 kyu Credit Card Mask;
+57. 8 kyu Square(n) Sum;
+58. 7 kyu Beginner Series #3 Sum of Numbers;
+59. 7 kyu Friend or Foe?;
+60. 7 kyu Categorize New Member;
+61. 7 kyu String ends with?;
+62. 6 kyu Stop gninnipS My sdroW!

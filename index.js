@@ -1707,7 +1707,6 @@ function findShort(s) {
 */
 
 function maskify(cc) {
-	let arr = cc.split("");
 	let lastFour = cc.slice(-4);
 	let charCount = cc.slice(0, -4).length;
 
@@ -1716,4 +1715,162 @@ function maskify(cc) {
 	return res;
 }
 
-console.log(maskify("4556364607935616"));
+// console.log(maskify("4556364607935616"));
+
+/*
+  57. Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+For example, for [1, 2, 2] it should return 9 because 
+
+*/
+
+function squareSum(numbers) {
+	let res = 0;
+
+	for (let i = 0; i < numbers.length; i++) {
+		res += Math.pow(numbers[i], 2);
+	}
+
+	return res;
+}
+
+// Best practise
+// function squareSum(numbers){
+// 	return numbers.reduce(function(sum, n){
+// 	  return (n*n) + sum;
+// 	}, 0)
+//   }
+
+// console.log(squareSum([0, 3, 4, 5]));
+//50
+
+/*
+  58. Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+	Note: a and b are not ordered!
+
+	Examples (a, b) --> output (explanation)
+	(1, 0) --> 1 (1 + 0 = 1)
+	(1, 2) --> 3 (1 + 2 = 3)
+	(0, 1) --> 1 (0 + 1 = 1)
+	(1, 1) --> 1 (1 since both are same)
+	(-1, 0) --> -1 (-1 + 0 = -1)
+	(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+
+*/
+
+function getSum(a, b) {
+	let resArr = [];
+	let a2 = a;
+	let b2 = b;
+
+	if (a === b) return a;
+
+	if (b < a) {
+		a2 = b;
+		b2 = a;
+	}
+
+	for (let i = a2; i <= b2; i++) {
+		resArr.push(i);
+	}
+
+	return resArr.reduce((a, b) => a + b, 0);
+}
+
+// Best practise
+// const GetSum = (a, b) => {
+// 	let min = Math.min(a, b),
+// 		max = Math.max(a, b);
+// 	return (max - min + 1) * (min + max) / 2;
+//   }
+
+// console.log(getSum(0, -1));
+
+/*
+  59. Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+	If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+	Input = ["Ryan", "Kieran", "Jason", "Yous"]
+	Output = ["Ryan", "Yous"]
+
+	Input = ["Peter", "Stephen", "Joe"]
+	Output = []
+*/
+
+function friend(friends) {
+	return friends.filter(n => n.length === 4);
+}
+
+// console.log(friend(["Ryan", "Kieran", "Mark"]));
+
+/*
+  60. The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+
+	To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+
+	Input
+	Input will consist of a list of pairs. Each pair contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+
+	input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+	output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+*/
+
+function openOrSenior(data) {
+	let result = data.map(item => {
+		const [age, handicap] = item;
+		console.log("age", age);
+
+		if (age >= 55 && handicap > 7) {
+			return "Senior";
+		} else {
+			return "Open";
+		}
+	});
+
+	return result;
+}
+
+// console.log(
+// 	openOrSenior([
+// 		[45, 12],
+// 		[55, 21],
+// 		[19, -2],
+// 		[104, 20],
+// 	]),
+// );
+
+// Best practise
+// function openOrSenior(data){
+// 	return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+//   }
+
+/*
+  61. Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+	Examples:
+	
+	solution('abc', 'bc') // returns true
+	solution('abc', 'd') // returns false
+*/
+
+function solution(str, ending) {
+	if (ending === "") {
+		return true;
+	}
+	const endingLen = ending.split("").length;
+	const a = str.split("").slice(-endingLen);
+
+	if (a.join("") === ending) {
+		return true;
+	}
+	return false;
+}
+
+console.log(solution("abcde", "cde"));
+
+// Best practise
+// function solution(str, ending){
+// 	return str.endsWith(ending);
+//   }
