@@ -69,3 +69,6 @@
 60. 7 kyu Categorize New Member;
 61. 7 kyu String ends with?;
 62. 6 kyu Stop gninnipS My sdroW!
+63. 6 kyu Who likes it?
+64. 6 kyu Find the odd int;
+65. Написать функцию, которая принимает массив из слов и удаляемое слово

@@ -1868,9 +1868,136 @@ function solution(str, ending) {
 	return false;
 }
 
-console.log(solution("abcde", "cde"));
+// console.log(solution("abcde", "cde"));
 
 // Best practise
 // function solution(str, ending){
 // 	return str.endsWith(ending);
 //   }
+
+/*
+  62. Write a function that takes in a string of one or more words, and returns the same string, but with all words that have five or more letters reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. 
+  Spaces will be included only when more than one word is present.
+
+	Examples:
+
+	"Hey fellow warriors"  --> "Hey wollef sroirraw" 
+	"This is a test        --> "This is a test" 
+	"This is another test" --> "This is rehtona test"
+*/
+
+function spinWords(string) {
+	const arr = string.split(" ");
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].length >= 5) {
+			arr[i] = arr[i].split("").reverse().join("");
+		}
+	}
+
+	return arr.join(" ");
+}
+
+// Best practise
+// function spinWords(words){
+//   return words.split(' ').map(function (word) {
+//     return (word.length > 4) ? word.split('').reverse().join('') : word;
+//   }).join(' ');
+// }
+
+// console.log(spinWords("Hey fellow warriors"));
+
+/*
+  63. You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+	Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+	
+	[]                                -->  "no one likes this"
+	["Peter"]                         -->  "Peter likes this"
+	["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+	["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+	["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+	Note: For 4 or more names, the number in "and 2 others" simply increases.
+*/
+
+function likes(names) {
+	let oneLikes = ["likes this"];
+	let twoOrThreeLike = ["like this"];
+	let moreThanFour = ["others like this"];
+
+	if (!names.length) {
+		return "no one likes this";
+	} else if (names.length === 1) {
+		oneLikes.unshift(names[0]);
+		return oneLikes.join(" ");
+	} else if (names.length === 2) {
+		twoOrThreeLike.unshift(names[1]);
+		twoOrThreeLike.unshift("and");
+		twoOrThreeLike.unshift(names[0]);
+
+		return twoOrThreeLike.join(" ");
+	} else if (names.length === 3) {
+		twoOrThreeLike.unshift(names[2]);
+		twoOrThreeLike.unshift("and");
+		twoOrThreeLike.unshift(names[1]);
+		twoOrThreeLike.unshift(names[0] + ",");
+
+		return twoOrThreeLike.join(" ");
+	} else {
+		let othersLength = names.length - 2;
+		moreThanFour.unshift(othersLength.toString());
+		moreThanFour.unshift("and");
+		moreThanFour.unshift(names[1]);
+		moreThanFour.unshift(names[0] + ",");
+
+		return moreThanFour.join(" ");
+	}
+}
+
+//Best practise
+// function likes(names) {
+//   names = names || [];
+//   switch(names.length){
+//     case 0: return 'no one likes this'; break;
+//     case 1: return names[0] + ' likes this'; break;
+//     case 2: return names[0] + ' and ' + names[1] + ' like this'; break;
+//     case 3: return names[0] + ', ' + names[1] + ' and ' + names[2] + ' like this'; break;
+//     default: return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
+//   }
+// }
+
+// console.log(likes(["Max", "John", "Max", "John"]));
+
+/*
+  64. Given an array of integers, find the one that appears an odd number of times.
+
+	There will always be only one integer that appears an odd number of times.
+
+	Examples
+	[7] should return 7, because it occurs 1 time (which is odd).
+	[0] should return 0, because it occurs 1 time (which is odd).
+	[1,1,2] should return 2, because it occurs 1 time (which is odd).
+	[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+	[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+*/
+
+function findOdd(A) {
+	const obj = A.reduce((acc, value, index) => ({ ...acc, [index]: value }), {});
+	console.log("obj", obj);
+	// return 0;
+}
+
+// console.log(findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]));
+
+// 65. Написать функцию, которая принимает массив из слов и удаляемое слово
+// возвращает строку со словами массива через запятую.
+function filterAndJoinWords(wordsArray, wordToRemove) {
+	let result = wordsArray.filter(el => el.toLowerCase() !== wordToRemove.toLowerCase());
+
+	return result.join(", ");
+}
+
+// Пример использования:
+const words = ["red", "green", "blue"];
+const result = filterAndJoinWords(words, "red");
+console.log(result); // "green, blue"
