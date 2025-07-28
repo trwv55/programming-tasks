@@ -1998,6 +1998,152 @@ function filterAndJoinWords(wordsArray, wordToRemove) {
 }
 
 // Пример использования:
-const words = ["red", "green", "blue"];
-const result = filterAndJoinWords(words, "red");
-console.log(result); // "green, blue"
+// const words = ["red", "green", "blue"];
+// const result = filterAndJoinWords(words, "red");
+// console.log(result); // "green, blue"
+
+// 66. Необходимо написать функцию strjoin,
+// которая склеивает строки через разделитель.
+
+function strjoin(separator, ...strings) {
+	return strings.join(separator);
+}
+
+// console.log(strjoin(".", "a", "b", "c")); // 'a.b.c'
+// strjoin('-', 'a', 'b', 'c', 'd', 'e', 'f') // 'a-b-c-d-e-f'
+
+// 67. Написать декоратор для функции, который выводит параметры функции.
+function sum(a, b) {
+	return a + b;
+}
+
+function decoratedSum(originalFn) {
+	return function (...args) {
+		return originalFn(...args);
+	};
+}
+
+// const decorated = decoratedSum(sum);
+
+// console.log(decorated(1, 2)); // Выведет: "Параметры функции: \[1, 2\]" и вернёт 3
+
+// 68. 6 kyu Find The Parity Outlier
+
+// You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+
+// Examples
+// [2, 4, 0, 100, 4, 11, 2602, 36] -->  11 (the only odd number)
+
+// [160, 3, 1719, 19, 11, 13, -21] --> 160 (the only even number)
+
+function findOutlier(integers) {
+	let odd = [];
+	let even = [];
+
+	for (let i = 0; i < integers.length; i++) {
+		if (integers[i] % 2 === 0) {
+			even.push(integers[i]);
+		} else {
+			odd.push(integers[i]);
+		}
+	}
+
+	console.log("odd", odd);
+	console.log("even", even);
+
+	if (odd.length > 1) {
+		return +even.join();
+	}
+	if ((even.length = 1)) {
+		return +odd.join();
+	} else return;
+}
+
+// console.log(findOutlier([1, 2, 3]));
+
+// Best practise
+// function findOutlier(int){
+// 	var even = int.filter(a=>a%2==0);
+// 	var odd = int.filter(a=>a%2!==0);
+// 	return even.length==1? even[0] : odd[0];
+//   }
+
+// 69. Count the number of Duplicates
+//
+// Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+// Example
+// "abcde" -> 0 # no characters repeats more than once
+// "aabbcde" -> 2 # 'a' and 'b'
+// "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+// "indivisibility" -> 1 # 'i' occurs six times
+// "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+// "aA11" -> 2 # 'a' and '1'
+// "ABBA" -> 2 # 'A' and 'B' each occur twice
+
+const frequency = arr.reduce((acc, el) => {
+	acc[el] = (acc[el] || 0) + 1;
+	return acc;
+}, {});
+
+//   acc[el] = (acc[el] === undefined ? 0 : acc[el]) + 1;
+
+function duplicateCount(text) {
+	const arrFromText = text.toLowerCase().split("");
+
+	const frequency = arrFromText.reduce((acc, el) => {
+		acc[el] = acc[el] === undefined ? 1 : acc[el] + 1;
+		return acc;
+	}, {});
+
+	const frequencyValues = Object.values(frequency).filter(el => el > 1);
+
+	return frequencyValues.length;
+}
+
+// console.log(duplicateCount("Indivisibilities"));
+
+// 70.
+// The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+// Examples
+// "din"      =>  "((("
+// "recede"   =>  "()()()"
+// "Success"  =>  ")())())"
+// "(( @"     =>  "))(("
+
+function duplicateEncode(word) {
+	let arrFromStr = word.toLowerCase().split("");
+	let res = [];
+
+	const count = arrFromStr.reduce((acc, el) => {
+		acc[el] = acc[el] === undefined ? 1 : acc[el] + 1;
+		return acc;
+	}, {});
+
+	for (let i = 0; i < arrFromStr.length; i++) {
+		if (count[arrFromStr[i]] > 1) {
+			res.push(")");
+		} else {
+			res.push("(");
+		}
+	}
+
+	return res.join("");
+}
+
+// console.log(duplicateEncode("din"));
+// console.log(duplicateEncode("Success"));
+// console.log(duplicateEncode("(( @"));
+
+// Best pratcise
+
+function duplicateEncode(word) {
+	return word
+		.toLowerCase()
+		.split("")
+		.map(function (a, i, w) {
+			return w.indexOf(a) == w.lastIndexOf(a) ? "(" : ")";
+		})
+		.join("");
+}

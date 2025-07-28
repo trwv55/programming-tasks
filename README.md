@@ -71,4 +71,9 @@
 62. 6 kyu Stop gninnipS My sdroW!
 63. 6 kyu Who likes it?
 64. 6 kyu Find the odd int;
-65. Написать функцию, которая принимает массив из слов и удаляемое слово
+65. Написать функцию, которая принимает массив из слов и удаляемое слово;
+66. Необходимо написать функцию strjoin;
+67. Написать декоратор для функции, который выводит параметры функции;
+68. 6 kyu Find The Parity Outlier;
+69. 6 kyu Counting Duplicates;
+70. 6 kyu Duplicate Encoder;
