@@ -77,3 +77,9 @@
 68. 6 kyu Find The Parity Outlier;
 69. 6 kyu Counting Duplicates;
 70. 6 kyu Duplicate Encoder;
+71. 6 kyu Find the unique number;
+72. 5 kyu Find the unique string;
+73. Яндекс;
+74. Рекурсия 1;
+75. Sum of a nested list; (рекурсия)
+76. 6 kyu Array Deep Count; (рекурсия)

@@ -2138,12 +2138,208 @@ function duplicateEncode(word) {
 
 // Best pratcise
 
-function duplicateEncode(word) {
-	return word
-		.toLowerCase()
-		.split("")
-		.map(function (a, i, w) {
-			return w.indexOf(a) == w.lastIndexOf(a) ? "(" : ")";
-		})
-		.join("");
+// function duplicateEncode(word) {
+// 	return word
+// 		.toLowerCase()
+// 		.split("")
+// 		.map(function (a, i, w) {
+// 			return w.indexOf(a) == w.lastIndexOf(a) ? "(" : ")";
+// 		})
+// 		.join("");
+// }
+
+// 71. There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+// It’s guaranteed that array contains at least 3 numbers.
+
+// The tests contain some very huge arrays, so think about performance.
+
+function findUniq(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		const el = arr[i];
+
+		if (arr.indexOf(el) === arr.lastIndexOf(el)) {
+			return el;
+		}
+	}
 }
+
+// console.log(findUniq([3, 10, 3, 3, 3]));
+
+// Best practise
+
+// function findUniq(arr) {
+// 	return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+// }
+
+// 72. There is an array of strings. All strings contains similar letters except one. Try to find it!
+
+// findUniq([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]) === 'BbBb'
+// findUniq([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ]) === 'foo'
+// Strings may contain spaces. Spaces are not significant, only non-spaces symbols matters. E.g. string that contains only spaces is like empty string.
+
+// It’s guaranteed that array contains more than 2 strings.
+
+function findUniq2(arr) {
+	const formatArr = arr.map(el => el.trim().toLowerCase());
+
+	const signature = formatArr.map(el => {
+		return [...new Set(el)] // массив уникальных символов
+			.sort() // сортировка для стабильности
+			.join(""); // склеиваем в строку
+	});
+
+	let index = null;
+
+	for (let i = 0; i < signature.length; i++) {
+		const el = signature[i];
+
+		if (signature.indexOf(el) === signature.lastIndexOf(el)) {
+			index = i;
+
+			return arr[index];
+		}
+	}
+}
+
+// console.log(findUniq2(["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"]));
+// console.log(findUniq2(["silvia", "vasili", "victor"]));
+// console.log(findUniq2(["    ", "a", " "]));
+
+// 73.
+// // Задач: Для каждого вложенного объекта нужно добавить свойство level, которое равняется числу (номер вложенности).
+// Если значение свойства будет не объект, то ничего не добавлять:
+
+/* 
+Должно получиться так:
+  {
+      a: {
+          level: 1
+          d: {
+              level: 2,
+              h: 4
+          },
+          e: 2
+      },
+      b: 1,
+      c: {
+          level: 1
+          f: {
+              level: 2
+              g: 3,
+              k: {
+                  level: 3
+              }
+          }
+      }
+  }
+*/
+
+const objectFour = {
+	a: {
+		d: {
+			h: 4,
+		},
+		e: 2,
+	},
+	b: 1,
+	c: {
+		f: {
+			g: 3,
+			k: {},
+		},
+	},
+};
+
+function addLevel(obj, currentLevel = 1) {
+	if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+		return; // ← базовый случай: не объект → выходим
+	}
+
+	for (const key in obj) {
+		const value = obj[key];
+
+		if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+			value.level = currentLevel;
+			addLevel(value, currentLevel + 1);
+		}
+	}
+}
+
+// 74.
+// //  Подсчет глубины вложенности объекта
+// 👉 Задача: вернуть максимальную глубину вложенности объекта
+// 📌 Ожидаемый результат: 4
+//
+
+const calcDepth = (obj, depth = 1) => {
+	if (typeof obj !== "object" || obj === null) return 0;
+
+	let maxDepth = depth;
+
+	for (const key in obj) {
+		const value = obj[key];
+
+		if (typeof value === "object" && value !== null) {
+			const childDepth = calcDepth(value, depth + 1);
+			if (childDepth > maxDepth) {
+				maxDepth = childDepth;
+			}
+		}
+	}
+
+	return maxDepth;
+};
+
+// const obj1 = {
+// 	a: {
+// 		b: {
+// 			c: {
+// 				d: 5,
+// 			},
+// 		},
+// 	},
+// 	e: 10,
+// };
+
+// console.log(calcDepp(obj1));
+
+// 75.
+// Implement a function to calculate the sum of the numerical values in a nested list. For example :
+
+// sumNested([1, [2, [3, [4]]]]) => 10
+
+const sumNested = arr => {
+	return arr.reduce((acc, curr) => {
+		if (Array.isArray(curr)) {
+			return acc + sumNested(curr); // рекурсивный вызов
+		} else {
+			return acc + curr; // просто добавляем число
+		}
+	}, 0); // начальное значение суммы — 0
+};
+
+// console.log(sumNested([1, [2, [3, [4]]]]));
+
+// 76.
+// You are given an array. Complete the function that returns the number of ALL elements within an array,
+// including any nested arrays.
+
+// []                   -->  0
+// [1, 2, 3]            -->  3
+// ["x", "y", ["z"]]    -->  4
+// [1, 2, [3, 4, [5]]]  -->  7
+
+function deepCount(a) {
+	let sum = a.length; // Сначала учитываем элементы текущего уровня
+	for (let item of a) {
+		if (Array.isArray(item)) {
+			sum += deepCount(item); // Рекурсивно добавляем элементы вложенных массивов
+		}
+	}
+	return sum;
+}
+
+// console.log(deepCount([1, 2, [3, 4]]));
